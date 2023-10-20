@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('product_id');
-            $table->bigInteger('user_id');
+            $table->foreign('product_id')
+                ->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('quantity');
             $table->timestamps();
         });
