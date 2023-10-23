@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('trackings', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('order_id');
+            $table->foreign('order_id')
+                ->references('id')->on('orders')->onDelete('cascade');
             $table->string('fedex_id');
-            $table->enum('status');
+            $table->enum('status',['1','2']);
             $table->string('location');
             $table->timestamps();
         });
