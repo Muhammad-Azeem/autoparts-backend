@@ -18,7 +18,7 @@ return new class extends Migration
             $table->float('sub_total');
             $table->float('shipment_cost');
             $table->float('total');
-            $table->enum('status');
+            $table->enum('status',['1','2']);
             $table->timestamps();
         });
     }

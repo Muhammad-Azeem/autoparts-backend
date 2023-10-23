@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('transaction_id');
             $table->foreign('order_id')
                 ->references('id')->on('orders')->onDelete('cascade');
-            $table->enum('status');
+            $table->enum('status',['1','2']);
             $table->timestamps();
         });
     }
