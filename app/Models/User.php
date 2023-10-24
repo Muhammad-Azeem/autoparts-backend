@@ -42,4 +42,13 @@ class User extends Authenticatable
     public function get_products(){
         return $this->hasMany(product::class,'user_id', 'id');
     }
+    public function order(){
+        return $this->hasMany(order::class,'user_id', 'id');
+    }
+    public function address(){
+        return $this->hasMany(address::class,'user_id', 'id');
+    }
+    public function payments(){
+        return $this->hasMany(payment::class,'user_id', 'id');
+    }
 }
