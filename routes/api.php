@@ -1,7 +1,9 @@
 <?php
 
+use App\Mail\SampleMail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\userController;
 
@@ -43,6 +45,12 @@ Route::match(['get','post'],'/signup',function (Request $request){
                 'email' => $request->email,
                 'password' => $request->password
             ]);
+        $content = [
+            'subject' => 'Email Verification',
+            'body' => 'This is the email body of how to send email from laravel 10 with mailtrap.'
+        ];
+
+        Mail::to("$request->email")->send(new SampleMail($content));
         if(!empty($request->storyId)){
             return response()->json(['type' => 'success','msg'=>'User Successfully Updated']);
         }else{
