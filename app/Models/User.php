@@ -17,10 +17,6 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'email',
-        'password',
-    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -39,6 +35,8 @@ class User extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+    protected $guarded = [''];
+
     public function get_products(){
         return $this->hasMany(product::class,'user_id', 'id');
     }
