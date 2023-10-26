@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\userController;
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\CategoryController;
 
 use Illuminate\Support\Str;
 
@@ -28,52 +29,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('update', [AuthController::class, 'update']);
+    Route::post('category/create', [CategoryController::class, 'create']);
+    Route::post('category/update', [CategoryController::class, 'update']);
+    Route::post('category/delete', [CategoryController::class, 'delete']);
 });
 
 Route::post('signup', [AuthController::class, 'signup']);
 Route::post('login', [AuthController::class, 'login']);
-
-
-//Route::match(['get','post'],'/signup',[userController::class,'signup'])->name('signup');
-//Route::match(['get','post'],'/signup',function (Request $request){
-//    if($request->isMethod('POST')){
-////        $request->validate([
-////            'fname' => 'max:255',
-////            'lname' => 'max:255',
-////            'bio' => 'max:500',
-////            'email' => 'unique:users,email|required|email|max:255',
-////            'password' => 'max:255',
-////            'imageSecurity' => 'max:255',
-////            'dname' => 'max:255',
-////            'facebook' => 'max:255',
-////            'instagram' => 'max:255',
-////            'linkedin' => 'max:255',
-////            'role' => '',
-////            'status' => ''
-////        ]);
-//        $token = Str::random(30);
-//        User::updateOrCreate([
-//            "id" => $request->userId
-//        ],[
-//                'email' => $request->email,
-//                'password' => $request->password,
-//                'email_verified_at' => '0',
-//                'rememberToken' => $token
-//            ]);
-//
-//        $content = [
-//            'subject' => 'Email Verification',
-//            'body' => "$token"
-//        ];
-//
-//        Mail::to("$request->email")->send(new SampleMail($content));
-//        if(!empty($request->storyId)){
-//            return response()->json(['type' => 'success','msg'=>'User Successfully Updated']);
-//        }else{
-//            return response()->json(['type' => 'success','msg'=>'User Successfully Added']);
-//        }
-//    }
-//    else{
-//        return response()->json(['msg'=>'Not Authorized']);
-//    }
-//})->name('signup');
