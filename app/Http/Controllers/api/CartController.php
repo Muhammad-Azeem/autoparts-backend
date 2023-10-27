@@ -8,26 +8,26 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    protected $CategoryService;
+    protected $CartService;
 
-    public function __construct(CartService $CategoryService = null)
+    public function __construct(CartService $CartService = null)
     {
-        $this->CategoryService = $CategoryService ;
+        $this->CartService = $CartService ;
     }
 
     public function find($id){
-        return $this->CategoryService->find($id);
+        return $this->CartService->find($id);
     }
 
     public function create(Request $request){
-        return $this->CategoryService->create($request->all());
+        return $this->CartService->create($request->all());
     }
 
     public function update(Request $request,$id){
-        return $this->CategoryService->update($id, $request);
+        return $this->CartService->update($id, $request);
     }
 
     public function delete($id){
-        return $this->CategoryService->delete($id);
+        return $this->CartService->delete($id);
     }
 }

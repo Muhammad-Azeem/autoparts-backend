@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\api\AddressController;
+use App\Http\Controllers\api\OrderController;
+use App\Http\Controllers\api\ProductController;
 use App\Mail\SampleMail;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -39,6 +42,22 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('cart/create', [CartController::class, 'create']);
     Route::post('cart/update', [CartController::class, 'update']);
     Route::post('cart/delete', [CartController::class, 'delete']);
+
+    Route::post('address/find/{id}', [CartController::class, 'find']);
+    Route::post('address/create', [AddressController::class, 'create']);
+    Route::post('address/update', [AddressController::class, 'update']);
+    Route::post('address/delete', [AddressController::class, 'delete']);
+
+    Route::post('orders/find/{id}', [OrderController::class, 'find']);
+    Route::post('order/create', [OrderController::class, 'create']);
+    Route::post('order/update', [OrderController::class, 'update']);
+    Route::post('order/delete', [OrderController::class, 'delete']);
+
+    Route::post('product/find/{id}', [ProductController::class, 'find']);
+    Route::post('product/create', [ProductController::class, 'create']);
+    Route::post('product/update', [ProductController::class, 'update']);
+    Route::post('product/delete', [ProductController::class, 'delete']);
+
 
 
 
