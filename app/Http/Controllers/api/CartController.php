@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Services\CategoryService;
+use App\Services\CartService;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CartController extends Controller
 {
     protected $CategoryService;
 
-    public function __construct(CategoryService $CategoryService = null)
+    public function __construct(CartService $CategoryService = null)
     {
         $this->CategoryService = $CategoryService ;
     }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\userController;
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\CategoryController;
+use App\Http\Controllers\api\CartController;
 
 use Illuminate\Support\Str;
 
@@ -29,10 +30,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('update', [AuthController::class, 'update']);
+    Route::post('category/find/{id}', [CategoryController::class, 'find']);
     Route::post('category/create', [CategoryController::class, 'create']);
     Route::post('category/update', [CategoryController::class, 'update']);
     Route::post('category/delete', [CategoryController::class, 'delete']);
+
+    Route::post('cart/find/{id}', [CartController::class, 'find']);
+    Route::post('cart/create', [CartController::class, 'create']);
+    Route::post('cart/update', [CartController::class, 'update']);
+    Route::post('cart/delete', [CartController::class, 'delete']);
+
+
+
 });
+
 
 Route::post('signup', [AuthController::class, 'signup']);
 Route::post('login', [AuthController::class, 'login']);
