@@ -12,6 +12,9 @@ use App\Http\Controllers\api\userController;
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\CartController;
+use App\Http\Controllers\api\GarageController;
+use App\Http\Controllers\api\TrackingController;
+use App\Http\Controllers\api\VehicleController;
 
 use Illuminate\Support\Str;
 
@@ -57,6 +60,21 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('product/create', [ProductController::class, 'create']);
     Route::post('product/update', [ProductController::class, 'update']);
     Route::post('product/delete', [ProductController::class, 'delete']);
+
+    Route::post('garage/find/{id}', [GarageController::class, 'find']);
+    Route::post('garage/create', [GarageController::class, 'create']);
+    Route::post('garage/update', [GarageController::class, 'update']);
+    Route::post('garage/delete', [GarageController::class, 'delete']);
+
+    Route::post('tracking/find/{id}', [TrackingController::class, 'find']);
+    Route::post('tracking/create', [TrackingController::class, 'create']);
+    Route::post('tracking/update', [TrackingController::class, 'update']);
+    Route::post('tracking/delete', [TrackingController::class, 'delete']);
+
+    Route::post('vehicle/find/{id}', [VehicleController::class, 'find']);
+    Route::post('vehicle/create', [VehicleController::class, 'create']);
+    Route::post('vehicle/update', [VehicleController::class, 'update']);
+    Route::post('vehicle/delete', [VehicleController::class, 'delete']);
 
 
 
