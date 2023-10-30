@@ -1,0 +1,228 @@
+/*----------Base CSS----------*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Rubik:300,400,500,700,900');
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+a:focus,
+input:focus,
+button:focus { outline: 0 solid; text-decoration: none; }
+img {
+    max-width: 100%;
+    height: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 15px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+}
+h2 {font-size: 36px;}
+h3 {font-size: 24px;}
+h4 {font-size: 20px;}
+h5 {font-size: 16px;}
+body {
+    line-height: 1.8;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+}
+a:hover { text-decoration: none }
+ul {margin: 0; padding: 0; list-style: none;}
+.form-control:focus {box-shadow: none;}
+
+.section-padding {padding: 60px 0;}
+.overlay {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background: #ddd;
+    background-size: cover;
+    background-position: center;
+	z-index: 1;
+}
+.overlay::after {
+	background: #0163d2;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
+	opacity: .2;
+	z-index: -1;
+}
+
+.radius-100 {border-radius: 100%;}
+.radius-30 {border-radius: 30px;}
+
+.margin-top-50 {margin-top: 50px;}
+.margin-bottom-0 {margin-bottom: 0;}
+
+.pt-10 {padding-top: 10px;}
+.pt-100 {padding-top: 100px;}
+
+/*.section-title {margin-bottom: 30px;}*/
+
+.overflow-hidden {overflow: hidden;}
+.overflow-x-hidden {overflow-x: hidden;}
+
+.transition-4s {transition: all .4s ease;}
+
+.countdown-wrap, 
+.video-blog-wrap,
+.review-carousel-wrap,
+.title-overlay-wrap {
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+ 
+}
+.footer-top-wrap {
+    padding: 90px 0 50px 0;
+}
+
+.title-overlay-wrap h1 {
+    margin: 0;
+    color: #ffffff;
+}
+
+.goToTop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+/*--------------04. Start of Scroll Top CSS------------------*/
+.scrollup {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 56px;
+    right: 30px;
+    background-color: #0163d2;
+    color: #ffffff;
+    background-position: center;
+    z-index: 999;
+    display: none;
+    text-align: center;
+    transition: all .4s ease;
+}
+.scrollup:hover {color: #ffffff;}
+/*--------------04. End of Scroll Top CSS------------------*/
+
+/*--------------05. Start of PreLoader CSS------------------*/
+.app-site-preloader-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 999999;
+}
+.app-site-preloader-wrap .spinner {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-image: url(../images/spinner.html);
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%);
+}
+/*--------------05. End of PreLoader CSS------------------*/
+
+/*--------------05. Start of subscribe-pre-loader CSS------------------*/
+.subscribe-preloader-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000080;
+    z-index: 999;
+}
+.subscribePreloader__thumb {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+.subscribePreloader__text {
+    background: #0163d2c7;
+    width: 60%;
+    margin: auto;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    top: 50%;
+    position: relative;
+    padding: 30px;
+}
+.subscribePreloader__text form {margin-top: 30px;}
+.subscribePreloader__text h1,
+.subscribePreloader__text p {color: #ffffff;}
+.subscribePreloader__text input,
+.subscribePreloader__text button {
+    border: none;
+    height: 40px;
+}
+.subscribePreloader__text input {
+    width: 70%;
+    margin-right: 5px;
+    padding-left: 10px;
+}
+.subscribePreloader__text button {
+    font-weight: 600;
+    width: 25%;
+    background: #333333;
+    color: #ffffff;
+    -webkit-transition: all 400ms ease-in;
+    transition: all 400ms ease-in;
+}
+.subscribePreloader__text button:hover {
+    background: #ffffff;
+    color: #333333;
+}
+.subscribePreloader__thumb span {
+    display: block;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: #ffffff;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #333333;
+    font-size: 12px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+/*--------------05. End of subscribe-pre-loader CSS------------------*/
+
+
+/*--------------06. Slider Setting----------------------------------*/
+
+.bs-slider .bs-slider-overlay {
+	background: rgba(0,0,0,0.5);
+}
+

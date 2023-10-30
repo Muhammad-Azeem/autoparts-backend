@@ -37,7 +37,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('update', [AuthController::class, 'update']);
     Route::post('category/find/{id}', [CategoryController::class, 'find']);
-    Route::post('category/create', [CategoryController::class, 'create']);
+//    Route::post('category/create', [CategoryController::class, 'create']);
     Route::post('category/update', [CategoryController::class, 'update']);
     Route::post('category/delete', [CategoryController::class, 'delete']);
 
@@ -57,7 +57,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('order/delete', [OrderController::class, 'delete']);
 
     Route::post('product/find/{id}', [ProductController::class, 'find']);
-    Route::post('product/create', [ProductController::class, 'create']);
     Route::post('product/update', [ProductController::class, 'update']);
     Route::post('product/delete', [ProductController::class, 'delete']);
 
@@ -80,6 +79,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
 
 });
+Route::post('category/create', [CategoryController::class, 'create']);
 
 
 Route::post('signup', [AuthController::class, 'signup']);

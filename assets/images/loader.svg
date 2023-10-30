@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:#fff;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="5" fill="none"/>
+<path d="M15 50 Q32.5 37 50 50 Q67.5 63 85 50 A35 35 0 0 1 15 50" fill="#ca0001">
+  <animate attributeName="d" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="M15 50 Q32.5 37 50 50 Q67.5 63 85 50 A35 35 0 0 1 15 50;M15 50 Q32.5 63 50 50 Q67.5 37 85 50 A35 35 0 0 1 15 50;M15 50 Q32.5 37 50 50 Q67.5 63 85 50 A35 35 0 0 1 15 50" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
+</path>
+</svg>
