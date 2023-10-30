@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->float('price');
             $table->text('description');
+            $table->bigInteger('sub_category_id')->unsigned();
             $table->foreign('sub_category_id')
                 ->references('id')->on('sub_categories')->onDelete('cascade');
+            $table->bigInteger('vehicle_id')->unsigned();
             $table->foreign('vehicle_id')
                 ->references('id')->on('vehicles')->onDelete('cascade');
             $table->float('discounted_price');

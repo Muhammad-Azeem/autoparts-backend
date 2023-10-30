@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')->onDelete('cascade');
             $table->float('amount');
             $table->string('transaction_id');
+            $table->bigInteger('order_id')->unsigned();
             $table->foreign('order_id')
                 ->references('id')->on('orders')->onDelete('cascade');
             $table->enum('status',['1','2']);

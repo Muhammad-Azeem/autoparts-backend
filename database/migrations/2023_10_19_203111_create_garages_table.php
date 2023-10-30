@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('garages', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')->onDelete('cascade');
-            $table->bigInteger('vehicle_id');
+            $table->bigInteger('vehicle_id')->unsigned();
+            $table->foreign('vehicle_id')
+                ->references('id')->on('vehicles')->onDelete('cascade');
             $table->timestamps();
         });
     }
