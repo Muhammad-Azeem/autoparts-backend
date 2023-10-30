@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Services\OrdersService;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -12,5 +13,21 @@ class OrderController extends Controller
     public function __construct(OrdersService $OrdersService = null)
     {
         $this->OrdersService = $OrdersService ;
+    }
+
+    public function find($id){
+        return $this->OrdersService->find($id);
+    }
+
+    public function create(Request $request){
+        return $this->OrdersService->create($request->all());
+    }
+
+    public function update(Request $request,$id){
+        return $this->OrdersService->update($id, $request);
+    }
+
+    public function delete($id){
+        return $this->OrdersService->delete($id);
     }
 }

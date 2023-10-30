@@ -4,7 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Services\CategoryService;
-use http\Env\Request;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -15,8 +15,19 @@ class CategoryController extends Controller
         $this->CategoryService = $CategoryService ;
     }
 
+    public function find($id){
+        return $this->CategoryService->find($id);
+    }
+
     public function create(Request $request){
-        return "helo";
-        $this->CategoryService->create($request);
+        return $this->CategoryService->create($request->all());
+    }
+
+    public function update(Request $request,$id){
+        return $this->CategoryService->update($id, $request);
+    }
+
+    public function delete($id){
+        return $this->CategoryService->delete($id);
     }
 }
