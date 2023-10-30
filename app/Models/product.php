@@ -12,4 +12,13 @@ class product extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+    public function get_products(){
+        return $this->hasMany(productImage::class,'product_id', 'id');
+    }
+    public function get_sub_category(){
+        return $this->hasMany(subCategory::class,'category_id', 'id');
+    }
+    public function get_vehicle_id(){
+        return $this->hasMany(vehicle::class,'vehicle_id', 'id');
+    }
 }
