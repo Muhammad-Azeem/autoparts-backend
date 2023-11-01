@@ -1,0 +1,190 @@
+// Typography
+
+/*  ---------------------------------------------------------
+	3. General reset
+	---------------------------------------------------------*/
+
+body {
+	min-width: $base-min-width;
+	-ms-overflow-style: scrollbar;
+}
+
+a,
+.btn {
+	text-decoration: none;
+    @extend %transition;
+
+	&:focus,
+	&:active {
+		outline: none;
+	}
+	&:before,
+	&:after {
+		@extend %transition;
+	}
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+
+	&:last-child {
+		margin-bottom: 0 !important;
+	}
+	a {
+		color: inherit;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+h1, .h1 {
+	line-height: 1;
+}
+h2, .h2 {
+	line-height: 1.1666;
+}
+h3, .h3 {
+}
+.section-heading {
+	padding: 8px 0;
+	margin: 0;
+	font-size: 16px;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: normal;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: $black transparent $border-color;
+}
+p {
+	&:last-child {
+		margin-bottom: 0 !important;
+	}
+	time {
+		font-size: 0.625em;
+		color: $gray-500;
+		text-transform: uppercase;
+		font-family: $font-family-sans-serif;
+	}
+}
+.font-normal { font-weight: normal !important;}
+.font-bold { font-weight: bold !important;}
+.text-left { text-align: left !important;}
+.text-center { text-align: center !important;}
+.text-right { text-align: right !important;}
+.btn-more {
+	font-size: 18px;
+	line-height: 1.2;
+	text-transform: uppercase;
+	color: $black;
+	flex-shrink: 0;
+
+	&:hover {
+		color: $primary;
+	}
+}
+.tags-list {
+	@extend %listreset;
+	margin: 0 -10px 16px;
+	font: bold 12px/16px $font-family-sans-serif;
+	text-transform: uppercase;
+	display: flex;
+	flex-flow: row wrap;
+
+	li {
+		padding: 2px 10px;
+
+		a {
+			color: $blue-800;
+
+			&:hover {
+				color: $blue-900;
+			}
+		}
+	}
+}
+.tag {
+	padding: 2px 0;
+	font-size: 12px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: top;
+	text-transform: uppercase;
+}
+.badge {
+	margin: 0 0 4px;
+}
+/* img frame styles */
+.img-frame {
+	position: relative;
+	padding: 60% 0 0;
+	margin: 0 0 4px;
+	overflow: hidden;
+	@extend %transition;
+
+	img {
+		@include size(100%);
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+		transform: scale(1);
+		@extend %transition;
+	}
+}
+.form-group {
+	margin: 0 0 20px;
+}
+textarea.form-control {
+	height: 150px;
+	resize: none;
+}
+.social-networks {
+	@extend %listreset;
+	margin: -4px;
+	display: inline-flex;
+	flex-flow: row wrap;
+
+	li {
+		padding: 4px;
+
+		a {
+			@include size(28px);
+			display: block;
+
+			@include media-breakpoint-up(md) {
+				@include size(32px);
+			}
+			img {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+		}
+	}
+}
+.scrollbar-hide {
+	-ms-overflow-style:none;
+	scrollbar-width:none;
+
+	&::-webkit-scrollbar {
+		display: none
+	}
+}
+.animate-pulse {
+	animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite;
+}
+@keyframes pulse {
+	50% { opacity:.5}
+}
+/*  ---------------------------------------------------------
+	4. Сommon site styles
+	---------------------------------------------------------*/
+/* main container styles */
+#wrapper {
+	min-height: 100vh;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}

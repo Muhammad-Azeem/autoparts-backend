@@ -24,6 +24,7 @@ return new class extends Migration
                 ->references('id')->on('vehicles')->onDelete('cascade');
             $table->float('discounted_price');
             $table->text('vehicle_fitment');
+            $table->string('sku')->unique();
             $table->text('check_fitment');
             $table->string('other_name');
             $table->string('part_number');

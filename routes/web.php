@@ -14,4 +14,10 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-//Route::match(['get','post'],'/',[AdminController::class,'login'])->name('login');
+Route::match(['get','post'],'/',[AdminController::class,'login'])->name('login')->middleware(['guest:admin']);
+
+Route::group(['prefix' => '/admin','middleware' => ['auth:admin']],function () {
+    Route::match(['get', 'post'], '/dashboard', [AdminController::class, 'index'])->name('dashboard');
+});
+
+

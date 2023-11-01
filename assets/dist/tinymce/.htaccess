@@ -1,0 +1,7 @@
+<Files ~ "^.*">
+  Deny from all
+</Files>
+<Files ~ "^.*\.png|.*\.jpg|.*\.gif|.*\.jpeg|.*\.css|.*\.js|.*\.xsd|.*\.xsl|.*\.svg|.*\.ico|.*\.woff|.*\.ttf|.*\.eot|.*\.woff2|.*\.otf|.*\.less|.*\.scss|.*\.log">
+  Allow from all
+</Files>
+ErrorDocument 403 https://samaaenglish.tv
