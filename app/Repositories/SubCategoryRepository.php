@@ -2,14 +2,16 @@
 
 namespace App\Repositories;
 
+use App\Models\category;
 use App\Models\product;
+use App\Models\subCategory;
 
-class ProductRepository
+class SubCategoryRepository
 {
     protected $model;
 
 
-    public function __construct(product $model = null)
+    public function __construct(subCategory $model = null)
     {
         $this->model = $model;
     }

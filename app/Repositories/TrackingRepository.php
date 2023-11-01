@@ -24,7 +24,7 @@ class TrackingRepository
     }
 
     public function update($id, $data){
-        $this->model->find($id)->update($data);
+        $this->model->find($id)->update($data->all());
         return $this->model->find($id);
     }
 
