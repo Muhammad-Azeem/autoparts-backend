@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class tracking extends Model
 {
     use HasFactory;
+    protected $fillable = ['order_id','fedex_id','status','location'];
 }
