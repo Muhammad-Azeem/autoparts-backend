@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,11 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::match(['get','post'],'/',[AdminController::class,'login'])->name('login')->middleware(['guest:admin']);
+Route::match(['get','post'],'/admin',[AdminAuthController::class,'login_'])->name('login')->middleware(['guest:admin']);
 
 Route::group(['prefix' => '/admin','middleware' => ['auth:admin']],function () {
     Route::match(['get', 'post'], '/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::match(['get', 'post'], '/add-product', [AdminController::class, 'AddProduct'])->name('product');
 });
 
 

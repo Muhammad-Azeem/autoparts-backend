@@ -9,7 +9,7 @@
     <meta name="author" content="Admin">
     <title>Admin - {{ config('app.name') }}</title>
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/dist/img/favicon.png') }}">
+    <link rel="shortcut icon" href="">
     <!--Global Styles(used by all pages)-->
     <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
             <div class="panel">
                 <div class="panel-header text-center mb-3">
                     <div class="register-logo text-center mb-4 d-flex justify-content-center">
-                        <img src="{{ asset('assets/dist/img/') }}" alt="Auto Parts" height="50">
+                        <img src="" alt="Auto Parts" height="50">
                     </div>
                     <p class="text-muted text-center mb-0">Nice to see you! Please log in with your account.</p>
                 </div>
@@ -51,11 +51,10 @@
                         </div>
                     @endforeach
                 @endif
-                <form class="register-form" method="post" action="{{ route('login') }}">
+                <form class="register-form" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
                         <input type="email" class="form-control" id="email_address" name="email" placeholder="Enter email">
-{{--                        <div class="invalid-feedback text-left">Enter your valid email</div>--}}
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" name="password" id="pass" placeholder="Password">
@@ -109,7 +108,7 @@
                             @endfor
                         </div>
                     @endif
-                    <button type="submit" class="btn btn-block" style="background-color: #152a70;color: white;">Log In</button>
+                    <button type="submit" class="btn btn-block" style="background-color: #2E5BA5;color: white;">Log In</button>
                 </form>
             </div>
         </div>
