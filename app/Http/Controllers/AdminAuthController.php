@@ -21,7 +21,6 @@ class AdminAuthController extends Controller
             $rslt = DB::table('users')->where('email',$username)->first();
 
             if(!empty($rslt)){
-                dd(Auth::guard('admin'));
                 if (Auth::guard('admin')->attempt(['email' => $username, 'password' => $password])) {
                     return redirect('/admin/dashboard');
                 } else {

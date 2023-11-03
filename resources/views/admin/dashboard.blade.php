@@ -8,63 +8,76 @@
 {{--    @endphp--}}
     <!-- Page Content  -->
     <!--/.Content Header (Page header)-->
+@php
+$order_count = "87";
+$cat_count = "15";
+$pro_count = "360";
+$customer_count = "56";
+@endphp
     <div class="body-content">
         <div class="row">
-            <div class="col-12 text-center d-flex justify-content-center">
-            </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                <div class="card card-stats statistic-box">
-                    <div
-                        class="card-header card-header-warning card-header-icon position-relative border-0 text-right px-3 py-0">
-                        <div class="card-icon d-flex align-items-center justify-content-center"><i
-                                class="typcn typcn-device-tablet"></i></div>
-                        <p class="card-category text-uppercase fs-10 font-weight-bold">Classifications</p>
-                        <h3 class="card-title fs-18 font-weight-bold"></h3>
+                <div class="card card-stats statistic-box mb-4">
+                    <div class="card-header card-header-warning card-header-icon position-relative border-0 text-right px-3 py-0">
+                        <div class="card-icon d-flex align-items-center justify-content-center">
+                            <i class="typcn typcn-chart-bar"></i>
+                        </div>
+                        <p class="card-category text-uppercase fs-10 font-weight-bold text-muted">Orders</p>
+                        <h3 class="card-title fs-18 font-weight-bold">{{ $order_count }}
+                        </h3>
                     </div>
                     <div class="card-footer p-3">
-                        <div class="stats"> Total Classifications</div>
+                        <div class="stats">
+                            Total Orders
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                <div class="card card-stats statistic-box">
-                    <div
-                        class="card-header card-header-danger card-header-icon position-relative border-0 text-right px-3 py-0">
-                        <div class="card-icon d-flex align-items-center justify-content-center"><i
-                                class="hvr-buzz-out far fa-user"></i></div>
-                        <p class="card-category text-uppercase fs-10 font-weight-bold">Authors</p>
-                        <h3 class="card-title fs-21 font-weight-bold"></h3>
+                <div class="card card-stats statistic-box mb-4">
+                    <div class="card-header card-header-success card-header-icon position-relative border-0 text-right px-3 py-0">
+                        <div class="card-icon d-flex align-items-center justify-content-center">
+                            <i class="typcn typcn-home-outline"></i>
+                        </div>
+                        <p class="card-category text-uppercase fs-10 font-weight-bold text-muted">Categories</p>
+                        <h3 class="card-title fs-21 font-weight-bold">{{ $cat_count }}</h3>
                     </div>
                     <div class="card-footer p-3">
-                        <div class="stats"> Total Authors</div>
+                        <div class="stats">
+                            Total Categories
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                <div class="card card-stats statistic-box">
-                    <div
-                        class="card-header card-header-success card-header-icon position-relative border-0 text-right px-3 py-0">
-                        <div class="card-icon d-flex align-items-center justify-content-center"><i
-                                class="hvr-buzz-out fas fa-th-list"></i></div>
-                        <p class="card-category text-uppercase fs-10 font-weight-bold">Stories</p>
-                        <h3 class="card-title fs-21 font-weight-bold"></h3>
+                <div class="card card-stats statistic-box mb-4">
+                    <div class="card-header card-header-danger card-header-icon position-relative border-0 text-right px-3 py-0">
+                        <div class="card-icon d-flex align-items-center justify-content-center">
+                            <i class="typcn typcn-shopping-cart"></i>
+                        </div>
+                        <p class="card-category text-uppercase fs-10 font-weight-bold text-muted">Products</p>
+                        <h3 class="card-title fs-21 font-weight-bold">{{ $pro_count }}</h3>
                     </div>
                     <div class="card-footer p-3">
-                        <div class="stats"> Current Month Stories</div>
+                        <div class="stats">
+                            Total Products
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                <div class="card card-stats statistic-box">
-                    <div
-                        class="card-header card-header-info card-header-icon position-relative border-0 text-right px-3 py-0">
-                        <div class="card-icon d-flex align-items-center justify-content-center"><i
-                                class="hvr-buzz-out fas fa-eye"></i></div>
-                        <p class="card-category text-uppercase fs-10 font-weight-bold">Views</p>
-                        <h3 class="card-title fs-21 font-weight-bold"></h3>
+                <div class="card card-stats statistic-box mb-4">
+                    <div class="card-header card-header-info card-header-icon position-relative border-0 text-right px-3 py-0">
+                        <div class="card-icon d-flex align-items-center justify-content-center">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <p class="card-category text-uppercase fs-10 font-weight-bold text-muted">Customers</p>
+                        <h3 class="card-title fs-21 font-weight-bold">{{ $customer_count }}</h3>
                     </div>
                     <div class="card-footer p-3">
-                        <div class="stats"> Current Month Views</div>
+                        <div class="stats">
+                            Total Customers
+                        </div>
                     </div>
                 </div>
             </div>

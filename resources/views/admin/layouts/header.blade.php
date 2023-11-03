@@ -117,16 +117,15 @@
                     <li class="{{ (request()->segment(2) === 'create-story' || request()->segment(2) === 'create-classification' || request()->segment(2) === 'story-list' || request()->segment(2) === 'classification-list')? 'mm-active' : '' }}">
                         <a class="has-arrow material-ripple" href="#">
                             <i class="typcn typcn-th-list mr-2"></i>
-                            Stories
+                            Products
                         </a>
                         <ul class="nav-second-level">
-                            <li class="{{ (request()->segment(2) === 'create-story')? 'mm-active' : '' }}"><a href="">Create Story</a></li>
-                            <li class="{{ (request()->segment(2) === 'create-classification')? 'mm-active' : '' }}"><a href="">Create Classification</a></li>
-                            <li class="{{ (request()->segment(2) === 'story-list')? 'mm-active' : '' }}"><a href="">Story List</a></li>
-                            <li class="{{ (request()->segment(2) === 'classification-list')? 'mm-active' : '' }}"><a href="">Classification List</a></li>
+                            <li class="{{ (request()->segment(2) === 'add-product')? 'mm-active' : '' }}"><a href="{{ route('product') }}">Add Product</a></li>
+                            <li class="{{ (request()->segment(2) === 'create-classification')? 'mm-active' : '' }}"><a href="">Add Category</a></li>
+                            <li class="{{ (request()->segment(2) === 'story-list')? 'mm-active' : '' }}"><a href="">Product List</a></li>
+                            <li class="{{ (request()->segment(2) === 'classification-list')? 'mm-active' : '' }}"><a href="">Category List</a></li>
                         </ul>
                     </li>
-                    <li class="{{ (request()->segment(2) === 'comments')? 'mm-active' : '' }}"><a href=""><i class="typcn typcn-messages mr-2"></i> Comments</a></li>
                     <li class="insert-media">
                         <a href="" class="md-btn"><i class="typcn typcn-image mr-2"></i> Media  </a>
                     </li>
