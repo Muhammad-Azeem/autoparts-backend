@@ -146,7 +146,7 @@ table.minha-table td.selected {
     background-color: #dc3545 !important;
 }
 .bg-green {
-    background-color: #28a745 !important;
+    background-color: #2e5ba5 !important;
 }
 .tag_complete_main{
     width: 92%;
@@ -420,8 +420,8 @@ a.info-btn{
 }
 .custom-control-input:checked~.custom-control-label::before{
     color: #fff;
-    border-color: #28a745;
-    background-color: #28a745;
+    border-color: #2e5ba5;
+    background-color: #2e5ba5;
 }
 .custom-control-label:before{
     background-color: #e84646;
@@ -498,8 +498,8 @@ a.info-btn{
 }
 .custom-control-input:checked~.custom-control-label::before{
     color: #fff;
-    border-color: #28a745;
-    background-color: #28a745;
+    border-color: #2e5ba5;
+    background-color: #2e5ba5;
 }
 .custom-control-label:before{
     background-color: #e84646;
@@ -536,8 +536,8 @@ a.info-btn{
 }
 .cs-input:checked~.cs-label::before{
     color: #fff;
-    border-color: #28a745;
-    background-color: #28a745;
+    border-color: #2e5ba5;
+    background-color: #2e5ba5;
 }
 .cs-label:before{
     background-color: #e84646;
@@ -588,7 +588,7 @@ a.info-btn{
       font-family: "Font Awesome 5 Free";
       top: -9px;
       right: -4px;
-      color: green;
+      color: #2e5ba5;
       position: absolute;
 
   }

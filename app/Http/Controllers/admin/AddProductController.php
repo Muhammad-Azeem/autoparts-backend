@@ -14,6 +14,23 @@ class AddProductController extends Controller
     {
         $this->AddProductService = $AddProductService;
     }
+
+    public function AddProduct(Request $request){
+        if ($request->isMethod("POST")){
+            return view('admin.addproduct');
+        }
+        else{
+            return view('admin.addproduct');
+        }
+    }
+    public function ProductList(Request $request){
+        if ($request->isMethod("POST")){
+
+        }
+        else{
+            return view('admin.productlist');
+        }
+    }
     public function find($id){
         return $this->AddProductService->find($id);
     }

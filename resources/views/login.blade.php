@@ -65,7 +65,7 @@
                       shuffle($shuffle_img);
                       $i = 1;
                     @endphp
-                    <p class="loginsuccess">Select Your Security Image &nbsp;
+                    {{--<p class="loginsuccess">Select Your Security Image &nbsp;
                     </p>
                     <div class="security" style="box-sizing: border-box;">
                         <div class="d-flex flex-row justify-content-center">
@@ -107,7 +107,7 @@
                                 <i class="fa fa-circle" style="color: gray;font-size: 15px"></i>
                             @endfor
                         </div>
-                    @endif
+                    @endif--}}
                     <button type="submit" class="btn btn-block" style="background-color: #2E5BA5;color: white;">Log In</button>
                 </form>
             </div>

@@ -1775,8 +1775,8 @@ table code {
 
 .sidebar-nav ul li.mm-active a {
     color: #fff;
-    background-color: #152A6F;
-    box-shadow: 0 0 10px 1px rgba(0, 13, 160, 0.32)
+    background-color: #2e5ba5;
+    box-shadow: 0 0 10px 1px rgb(46, 91, 165);
 }
 
 .sidebar-nav ul li .nav-second-level li {

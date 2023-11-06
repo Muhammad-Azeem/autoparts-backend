@@ -45,8 +45,17 @@
     <link href="{{ asset('assets/dist/css/select.html') }}" rel="stylesheet" type="text/css"/>
 
     <style>
+        .bg-success{
+            background-color: #2e5ba5 !important;
+        }
+        .btn-success{
+            color: white !important;
+            background-color: #2e5ba5 !important;
+            box-shadow: 0 2px 6px 0 #2E5BA5 !important;
+
+        }
         outline{
-            color: #152a70 !important;
+            color: #2E5BA5 !important;
         }
         #blah{
             border-radius: 10px;
@@ -70,29 +79,131 @@
             margin: 30px 0;
             padding: 10px 20px;
             background: #fff;
-            border-left: 5px solid #0707b5;
+            border-left: 5px solid #2E5BA5;
             font-size: 22.5px;
         }
         @endif
+        .input_wrapper{
+            width: 80px;
+            height: 40px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .input_wrapper input[type="checkbox"]{
+            width: 80px;
+            height: 40px;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: #C82733;
+            border-radius: 2px;
+            position: relative;
+            outline: 0;
+            -webkit-transition: all .2s;
+            transition: all .2s;
+        }
+
+        .input_wrapper input[type="checkbox"]:after{
+            position: absolute;
+            content: "";
+            top: 3px;
+            left: 3px;
+            width: 34px;
+            height: 34px;
+            background: #dfeaec;
+            z-index: 2;
+            border-radius: 2px;
+            -webkit-transition: all .35s;
+            transition: all .35s;
+        }
+
+        .input_wrapper svg{
+            position: absolute;
+            top: 44%;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            fill: #fff;
+            -webkit-transition: all .35s;
+            transition: all .35s;
+            z-index: 1;
+        }
+        .input_wrapper .is_checked{
+            width: 18px;
+            left: 18%;
+            -webkit-transform: translateX(190%) translateY(-30%) scale(0);
+            transform: translateX(190%) translateY(-30%) scale(0);
+        }
+
+        .input_wrapper .is_unchecked{
+            width: 15px;
+            right: 16%;
+            -webkit-transform: translateX(0) translateY(-30%) scale(1);
+            transform: translateX(0) translateY(-30%) scale(1);
+        }
+
+        /* Checked State */
+        .input_wrapper input[type="checkbox"]:checked{
+            background: #2E5BA5;
+        }
+
+        .input_wrapper input[type="checkbox"]:checked:after{
+            left: calc(100% - 37px);
+        }
+
+        .input_wrapper input[type="checkbox"]:checked + .is_checked{
+            -webkit-transform: translateX(0) translateY(-30%) scale(1);
+            transform: translateX(0) translateY(-30%) scale(1);
+        }
+
+        .input_wrapper input[type="checkbox"]:checked ~ .is_unchecked{
+            -webkit-transform: translateX(-190%) translateY(-30%) scale(0);
+            transform: translateX(-190%) translateY(-30%) scale(0);
+        }
+
+        /* Switch 4 Specific Style End */
+        .checkbo{
+            display: none;
+        }
+        .des{
+            display: block;
+            background: white;
+            border: 2px solid #C82733;
+            border-radius: 9px;
+            padding: 5px 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            box-shadow: 0px 3px 10px -2px rgb(161 170 166 / 50%);
+            position: relative;
+            color: #777;
+            cursor: pointer;
+        }
+        .chk input[type="checkbox"]:checked + .des {
+            background: #C82733;
+            color: white;
+            cursor: pointer;
+            border-color: #C82733;
+        }
     </style>
 </head>
 <body class="fixed" >
 <!-- Page Loader -->
-{{--<div class="page-loader-wrapper">--}}
-{{--    <div class="loader">--}}
-{{--        <div class="preloader">--}}
-{{--            <div class="spinner-layer pl-green">--}}
-{{--                <div class="circle-clipper left">--}}
-{{--                    <div class="circle"></div>--}}
-{{--                </div>--}}
-{{--                <div class="circle-clipper right">--}}
-{{--                    <div class="circle"></div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <p>Please wait...</p>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
 <!-- #END# Page Loader -->
 <div class="wrapper" {{ (request()->segment(2) === 'add-story') ? 'style= display:inline-block' : '' }}>
     <!-- Sidebar  -->
@@ -121,13 +232,31 @@
                         </a>
                         <ul class="nav-second-level">
                             <li class="{{ (request()->segment(2) === 'add-product')? 'mm-active' : '' }}"><a href="{{ route('product') }}">Add Product</a></li>
-                            <li class="{{ (request()->segment(2) === 'create-classification')? 'mm-active' : '' }}"><a href="">Add Category</a></li>
-                            <li class="{{ (request()->segment(2) === 'story-list')? 'mm-active' : '' }}"><a href="">Product List</a></li>
-                            <li class="{{ (request()->segment(2) === 'classification-list')? 'mm-active' : '' }}"><a href="">Category List</a></li>
+                            <li class="{{ (request()->segment(2) === 'add-category')? 'mm-active' : '' }}"><a href="{{ route('addCategory') }}">Add Category</a></li>
+                            <li class="{{ (request()->segment(2) === 'product-list')? 'mm-active' : '' }}"><a href="{{ route('productList') }}">Product List</a></li>
+                            <li class="{{ (request()->segment(2) === 'category-list')? 'mm-active' : '' }}"><a href="{{ route('categoryList') }}">Category List</a></li>
                         </ul>
                     </li>
                     <li class="insert-media">
                         <a href="" class="md-btn"><i class="typcn typcn-image mr-2"></i> Media  </a>
+                    </li>
+                    <li class="">
+                        <a class="material-ripple" href="">
+                            <i class="fas fa-user mr-2"></i>
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-arrow material-ripple" href="#">
+                            <i class="typcn typcn-chart-bar mr-2"></i>
+                            Sales
+                        </a>
+                        <ul class="nav-second-level">
+                            <li class=""><a href="">Orders</a></li>
+                            <li class=""><a href="">Reports</a></li>
+                            <li class=""><a href="">Order Status</a></li>
+                            <li class=""><a href="">Order Settings</a></li>
+                        </ul>
                     </li>
                     <script>
                         $('a.md-btn').click(function(event){

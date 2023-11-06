@@ -49,91 +49,11 @@
     <script src="{{ asset('assets/dist/js/pages/newsletter.active.js') }}"></script>
 @endif
 <script type="text/javascript">
-        @if(request()->segment(2) === 'users')
-        function toggleZoomScreen() {
-        document.body.style.zoom = "90%";
-    }
-        @else
-        function toggleZoomScreen() {
-        document.body.style.zoom = "80%";
-    }
-    @endif
         @if(request()->segment(2) === "create-story")
     $(function () {
         $('.datetimepicker').datetimepicker();
     });
     @endif
-</script>
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#imgInp").change(function(){
-        readURL(this);
-    });
-</script>
-<script>
-    var baseUrl = "{{route("home")}}/";
-    var products_url = "{{ route("story-list") }}";
-    var user_url = "{{ route('users-list') }}";
-    var comment_url = "{{ route('comment') }}";
-    $(function() {
-        $('.toggle-class').change(function() {
-            var status = $(this).prop('checked') == true ? 1 : 0;
-            var product_id = $(this).data('id');
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: products_url,
-                data: {'status': status, 'product_id': product_id},
-                success: function(data){
-                    console.log(data.success)
-                }
-            });
-        })
-    });
-
-    $(function() {
-        $('.toggle-class-user').change(function() {
-            var status = $(this).prop('checked') == true ? 1 : 0;
-            var product_id = $(this).data('id');
-            var user = $(this).data('role');
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: user_url,
-                data: {'status': status, 'id': product_id, 'user' : user },
-                success: function(data){
-                    console.log(data.success)
-                }
-            });
-        })
-    });
-
-    $(function() {
-        $('.toggle-class-comment').change(function() {
-            var status = $(this).prop('checked') == true ? 1 : 0;
-            var product_id = $(this).data('id');
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: comment_url,
-                data: {'status': status, 'product_id': product_id},
-                success: function(data){
-                    console.log(data.success)
-                }
-            });
-        })
-    });
 </script>
 </body>
 </html>
