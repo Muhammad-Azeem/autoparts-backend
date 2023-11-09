@@ -8,13 +8,7 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h6 class="fs-17 font-weight-600 mb-0">Category List</h6>
-                                </div>
-                                <div class="text-right">
-                                    <div class="actions">
-                                        <a href="{{ route('addCategory') }}" class="btn btn-success pull-right">Add Category</a>
-                                        <a href="{{ route('categoryList') }}" class="btn btn-inverse pull-right">Category List</a>
-                                    </div>
+                                    <h6 class="fs-17 font-weight-600 mb-0">Customers List</h6>
                                 </div>
                             </div>
                             @if (Session::has('msg'))
@@ -38,19 +32,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @php
-                                    $m = 1;
- @endphp
                                     @foreach($lists as $list)
                                         <tr>
-                                            <th scope="row">{{ $m }}</th>
-                                            <td><a href="" target="_blank"><strong>{{ $list->name }}</strong></a></td>
-                                            <td></td>
+                                            <th scope="row">{{ $list->id }}</th>
+                                            <td><a href="{{ route("HomeUrl").'/'.$list->slug.'-1'.$list->id }}" target="_blank"><strong>{{ $list->name }}</strong></a></td>
+                                            <td>{{ $list->slug }}</td>
                                             <td>
-                                                <a class="fa fa-edit" href="?edit={{ $list->id }}" title="edit"></a>
+                                                <a class="fa fa-edit" href="{{ route('ad_category') }}?edit={{ $list->id }}" title="edit"></a>
                                                 <a class="fa fa-trash sconfirm" href="?delete={{ $list->id }}" title="delete"></a>
                                             </td>
-                                            @php $m++; @endphp
                                             @endforeach
                                         </tr>
                                     </tbody>

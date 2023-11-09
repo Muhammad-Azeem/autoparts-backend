@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\category;
+use App\Models\product;
+use App\Models\subCategory;
 use App\Services\AddProductService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AddProductController extends Controller
 {
@@ -16,11 +20,30 @@ class AddProductController extends Controller
     }
 
     public function AddProduct(Request $request){
+        $sub = subCategory::orderByDesc("id")->get();
+        if($request->isMethod('get') and $request->has('id')){
+            $id = $request->id;
+            $pro = product::findOrFail($id);
+            return view('admin.addproduct',compact(['pro','sub']));
+        }
         if ($request->isMethod("POST")){
-            return view('admin.addproduct');
+            $validator = Validator::make($request->all(),[
+                'name' => 'required|string',
+            ]);
+            if($validator->fails()){
+                return back()->with(['type' => 'danger','msg'=>$validator->messages()->first()]);
+            }
+            if (!empty($request->id)){
+                $z = $this->AddProductService->update($request->id,$request);
+            }else{
+                $z = $this->AddProductService->create($request->all());
+            }
+             if (!null == $z){
+                 return back()->with(['type' => 'success','msg'=>'Successfully Added']);
+             }
         }
         else{
-            return view('admin.addproduct');
+            return view('admin.addproduct',compact(['sub']));
         }
     }
     public function ProductList(Request $request){
@@ -28,7 +51,8 @@ class AddProductController extends Controller
 
         }
         else{
-            return view('admin.productlist');
+            $lists = product::orderByDesc("id")->get();
+            return view('admin.productlist', compact(['lists']));
         }
     }
     public function find($id){

@@ -233,8 +233,10 @@
                         <ul class="nav-second-level">
                             <li class="{{ (request()->segment(2) === 'add-product')? 'mm-active' : '' }}"><a href="{{ route('product') }}">Add Product</a></li>
                             <li class="{{ (request()->segment(2) === 'add-category')? 'mm-active' : '' }}"><a href="{{ route('addCategory') }}">Add Category</a></li>
+                            <li class="{{ (request()->segment(2) === 'add-subcategory')? 'mm-active' : '' }}"><a href="{{ route('addSubCategory') }}">Add SubCategory</a></li>
                             <li class="{{ (request()->segment(2) === 'product-list')? 'mm-active' : '' }}"><a href="{{ route('productList') }}">Product List</a></li>
                             <li class="{{ (request()->segment(2) === 'category-list')? 'mm-active' : '' }}"><a href="{{ route('categoryList') }}">Category List</a></li>
+                            <li class="{{ (request()->segment(2) === 'subcategory-list')? 'mm-active' : '' }}"><a href="{{ route('subcategoryList') }}">SubCategory List</a></li>
                         </ul>
                     </li>
                     <li class="insert-media">
@@ -256,6 +258,15 @@
                             <li class=""><a href="">Reports</a></li>
                             <li class=""><a href="">Order Status</a></li>
                             <li class=""><a href="">Order Settings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow material-ripple" href="#">
+                            <i class="typcn typcn-chart-bar mr-2"></i>
+                            Vehicle
+                        </a>
+                        <ul class="nav-second-level">
+                            <li class=""><a href="">Add Vehicle</a></li>
                         </ul>
                     </li>
                     <script>

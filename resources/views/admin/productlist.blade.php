@@ -35,38 +35,26 @@
                                         <th style="width:40%">Name</th>
                                         <th>Category</th>
                                         <th>Price</th>
-                                        <th>Views</th>
                                         <th>Date</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {{--@foreach($lists as $list)
+                                    @php
+                                    $m = 1;
+                                    @endphp
+                                    @foreach($lists as $l => $list)
                                     <tr>
-                                        <th scope="row">{{ $list->id }}</th>
-                                        <td><a href="{{ route("HomeUrl").'/'.$list->slug.'-2'.$list->id }}" target="_blank"><strong>{{ $list->product_name }}</strong></a></td>
+                                        <th scope="row">{{ $m }}</th>
+                                        <td><a href="" target="_blank"><strong>{{ $list->name }}</strong></a></td>
                                         <td>
                                             @php
-                                                $cats = explode(',',$list->category);
-                                                if(!empty($cats)){
-                                                    foreach ($cats as $key => $cat){
-                                                        if(!empty($cat)){
-                                                           $cat_n = \App\Models\category::where('id',$cat)->first();
-                                                           $cat_name = $cat_n->name;
-                                                           @endphp
-                                                                <a href="{{ route("HomeUrl").'/'.$cat_n->slug.'-1'.$cat_n->id }}" target="_blank">{{ $cat_name }}</a>
-                                                            @php
-                                                        }
-                                                    }
-                                                }
-                                                else{
-                                                    echo "<b style='color:  red'>No Category Exist</b>";
-                                                }
+                                                $cat_n = \App\Models\category::where('id',$list->sub_category_id)->first();
+                                                $cat_name = $cat_n->name;
                                             @endphp
+                                            <a href="" target="_blank">{{ $cat_name }}</a>
                                         </td>
-                                        <td>{{ $list->new_price }}</td>
-                                        <td>{{ $list->views }}</td>
-
+                                        <td>{{ $list->price }}</td>
                                         <td>{{ date("d M y h:i",strtotime($list->created_at)) }}</td>
                                         <td>
                                             @if($list->status == '1')
@@ -74,10 +62,11 @@
                                             @else
                                                 <a href="?active={{ $list->id }}" class="text-success fa fa-check" data-id="{{ $list->id }}" title="Make active"></a>
                                             @endif
-                                            <a class="fa fa-edit" href="{{ route('ad-product') }}?edit={{ $list->id }}" title="edit"></a>
+                                            <a class="fa fa-edit" href="?edit={{ $list->id }}" title="edit"></a>
                                             <a class="fa fa-trash sconfirm" href="?delete={{ $list->id }}" title="delete"></a>
                                         </td>
-                                        @endforeach--}}
+                                        @php $m++; @endphp
+                                        @endforeach
                                     </tr>
                                     </tbody>
                                 </table>

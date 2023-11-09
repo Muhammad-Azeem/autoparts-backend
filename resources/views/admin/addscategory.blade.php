@@ -83,7 +83,7 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="skin-line">
-                                                    <select name="parent" class="form-control basic-single">
+                                                    <select name="category_id" class="form-control basic-single">
                                                         <option value="">Select Parent Classification</option>
                                                         @foreach($cat as $cats)
                                                             <option value="{{ $cats->id }}" {{--{{ ($cats->id == $parent) ? 'selected' : '' }}--}}>{{--{{ (!empty($cats->parent)) ? '━ ' : '' }}--}}{{ $cats->name }}</option>

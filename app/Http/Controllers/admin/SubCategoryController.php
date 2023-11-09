@@ -10,22 +10,22 @@ use App\Services\CategoryService;
 use App\Services\SubCategoryService;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class SubCategoryController extends Controller
 {
-    protected $AddCategoryService;
+    protected $AddSubCategoryService;
 
-    public function __construct(CategoryService $AddCategoryService = null)
+    public function __construct(SubCategoryService $AddSubCategoryService = null)
     {
-        $this->AddCategoryService = $AddCategoryService;
+        $this->AddSubCategoryService = $AddSubCategoryService;
     }
 
-    public function AddCategory(Request $request){
+    public function AddSCategory(Request $request){
         if ($request->isMethod("POST")){
             if (!empty($request->parent)){
 
             }
             else{
-                $cat = $this->AddCategoryService->create($request->all());
+                $cat = $this->AddSubCategoryService->create($request->all());
                 if(!empty($cat->id)){
                     return back()->with(['type'=>'success','msg'=>'Successfully Added']);
                 }
@@ -33,16 +33,16 @@ class CategoryController extends Controller
         }
         else{
             $cat = category::orderByDesc("id")->get();
-            return view('admin.addcategory', compact(['cat']));
+            return view('admin.addscategory', compact(['cat']));
         }
     }
-    public function CategoryList(Request $request){
+    public function SCategoryList(Request $request){
         if ($request->isMethod("POST")){
 
         }
         else{
-            $lists = category::orderByDesc("id")->get();
-            return view('admin.categorylist',compact(['lists']));
+            $lists = subCategory::orderByDesc("id")->get();
+            return view('admin.scategorylist',compact(['lists']));
         }
     }
 

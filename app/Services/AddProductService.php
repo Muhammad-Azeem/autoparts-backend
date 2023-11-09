@@ -23,6 +23,20 @@ class AddProductService
     }
 
     public function create($request){
+        if(!empty($request['total_images'])){
+            $ar_img = array();
+            $re = '/image[0-9]+/m';
+            foreach ($request as $req=>$k){
+                $c= preg_match($re,$req,$n);
+                if(!empty($n))
+                    $ar_img[] = [$req => $k];
+            }
+            $img = json_encode($ar_img);
+        }
+        else{
+            $img = '';
+        }
+        $request['images'] = $img;
         return $this->repository->create($request);
     }
 

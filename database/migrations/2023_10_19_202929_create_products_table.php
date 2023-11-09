@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->float('price');
+            $table->text('images');
             $table->text('description');
             $table->bigInteger('sub_category_id')->unsigned();
             $table->foreign('sub_category_id')
