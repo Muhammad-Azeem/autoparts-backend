@@ -34,4 +34,17 @@ class AuthService
         return $this->repository->update($id, $data);
 
     }
+
+    public function getUser(array $credentials) {
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            return $user;
+        }
+        return null;
+    }
+
+    public function findByEmail($email){
+        return $this->repository->findByEmail($email);
+    }
 }

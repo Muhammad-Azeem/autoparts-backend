@@ -14,3 +14,4 @@ class category extends Model
         return $this->hasMany(subCategory::class,'category_id', 'id');
     }
 }
+ 
