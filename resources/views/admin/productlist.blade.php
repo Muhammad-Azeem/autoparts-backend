@@ -62,7 +62,7 @@
                                             @else
                                                 <a href="?active={{ $list->id }}" class="text-success fa fa-check" data-id="{{ $list->id }}" title="Make active"></a>
                                             @endif
-                                            <a class="fa fa-edit" href="?edit={{ $list->id }}" title="edit"></a>
+                                            <a class="fa fa-edit" href="{{ route('product') }}?id={{ $list->id }}" title="edit"></a>
                                             <a class="fa fa-trash sconfirm" href="?delete={{ $list->id }}" title="delete"></a>
                                         </td>
                                         @php $m++; @endphp

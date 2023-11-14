@@ -222,9 +222,6 @@
                 <ul class="metismenu">
                     <li class="nav-label">Main Menu</li>
                     <li class="{{ (request()->segment(2) === 'dashboard')? 'mm-active' : '' }}"><a href="{{ route('dashboard') }}"><i class="typcn typcn-home-outline mr-2"></i> Dashboard</a></li>
-                    <li class="{{ (request()->segment(2) === 'home-settings')? 'mm-active' : '' }}">
-                        <a href="" aria-expanded="true"><i class="typcn typcn-device-desktop mr-2"></i> Home Page</a>
-                    </li>
                     <li class="{{ (request()->segment(2) === 'create-story' || request()->segment(2) === 'create-classification' || request()->segment(2) === 'story-list' || request()->segment(2) === 'classification-list')? 'mm-active' : '' }}">
                         <a class="has-arrow material-ripple" href="#">
                             <i class="typcn typcn-th-list mr-2"></i>
@@ -242,8 +239,8 @@
                     <li class="insert-media">
                         <a href="" class="md-btn"><i class="typcn typcn-image mr-2"></i> Media  </a>
                     </li>
-                    <li class="">
-                        <a class="material-ripple" href="">
+                    <li class="{{ (request()->segment(2) === 'customers')? 'mm-active' : '' }}">
+                        <a class="material-ripple" href="{{ route('customers') }}">
                             <i class="fas fa-user mr-2"></i>
                             Customers
                         </a>
@@ -254,10 +251,8 @@
                             Sales
                         </a>
                         <ul class="nav-second-level">
-                            <li class=""><a href="">Orders</a></li>
-                            <li class=""><a href="">Reports</a></li>
-                            <li class=""><a href="">Order Status</a></li>
-                            <li class=""><a href="">Order Settings</a></li>
+                            <li class="{{ (request()->segment(2) === 'orders')? 'mm-active' : '' }}"><a href="{{ route('order') }}">Orders</a></li>
+                            <li class="{{ (request()->segment(2) === 'add-vehicle')? 'mm-active' : '' }}"><a href="">Reports</a></li>
                         </ul>
                     </li>
                     <li>
@@ -266,7 +261,8 @@
                             Vehicle
                         </a>
                         <ul class="nav-second-level">
-                            <li class=""><a href="">Add Vehicle</a></li>
+                            <li class="{{ (request()->segment(2) === 'add-vehicle')? 'mm-active' : '' }}"><a href="{{ route('addVehicle') }}">Add Vehicle</a></li>
+                            <li class="{{ (request()->segment(2) === 'vehicle-list')? 'mm-active' : '' }}"><a href="{{ route('vehicleList') }}">Vehicle List </a></li>
                         </ul>
                     </li>
                     <script>

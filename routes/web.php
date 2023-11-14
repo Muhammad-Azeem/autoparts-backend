@@ -33,7 +33,12 @@ Route::group(['prefix' => '/admin','middleware' => ['auth:admin']],function () {
     Route::match(['get', 'post'], '/add-subcategory', [SubCategoryController::class, 'AddSCategory'])->name('addSubCategory');
     Route::match(['get', 'post'], '/subcategory-list', [SubCategoryController::class, 'SCategoryList'])->name('subcategoryList');
 
+    Route::match(['get', 'post'], '/orders', [AdminController::class, 'orders'])->name('order');
+
     Route::match(['get', 'post'], '/add-vehicle', [AddVehicleController::class, 'AddV'])->name('addVehicle');
+    Route::match(['get', 'post'], '/vehicle-list', [AddVehicleController::class, 'ShowV'])->name('vehicleList');
+
+    Route::match(['get', 'post'], '/customers', [AdminController::class, 'customers'])->name('customers');
 });
 
 

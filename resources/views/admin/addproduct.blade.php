@@ -111,19 +111,37 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="card">
-                                            <div class="card-header card bg-success text-white">
-                                                <b> Product Images <small>600 x 800</small></b>
-                                            </div>
-                                            <div class="card-body gallery">
-                                                <div class="form-group">
-                                                    <input type="hidden" name="total_images" value="">
-                                                    <div class="uc-image col-lg-3 col-md-4 col-sm-6"><span class="close-image-x">x</span><input type="hidden" name="image1" id="imgss1" value=""><div id="m-image1" class="image_display"><img src="" id="imgs1"></div><div style="margin-top:10px;"><a class="insert-media btn btn-info btn-sm" data-type="image" data-for="display" data-return="#m-image1" data-link="image1">Add Image/Url</a></div></div>
-                                                    <div class="ext-image"></div>
-                                                    <div class="add-more-images2"><a href="#" class="btn btn-success float-right">Add More</a> </div>
+                                        <input type="hidden" name="total_images" value="">
+                                        @forelse($images as $val)
+                                            @php
+                                                $s_img = str_split(key($val),5);
+                                               $image = $val['image'.$s_img[1]];
+                                            @endphp
+                                            <div class="uc-image col-lg-3 col-md-4 col-sm-6">
+                                                <span class="close-image-x">x</span>
+                                                <input type="hidden" name="image{{ $s_img[1] }}" value="{{ $image }}">
+                                                <div id="image{{ $s_img[1] }}" class="image_display">
+                                                    <img src="{{ $image }}" alt="">
+                                                </div>
+                                                <div style="margin-top:10px;">
+                                                    <a class="insert-media btn btn-danger btn-sm" data-type="image" data-for="display" data-return="#image{{ $s_img[1] }}" data-link="image{{ $s_img[1] }}">Add Image</a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @empty
+                                            <input type="hidden" name="total_images" value="">
+                                            <div class="uc-image col-lg-3 col-md-4 col-sm-6">
+                                                <span class="close-image-x">x</span>
+                                                <input type="hidden" name="image1" value="">
+                                                <div id="image1" class="image_display">
+                                                    <img src="" alt="">
+                                                </div>
+                                                <div style="margin-top:10px;">
+                                                    <a class="insert-media btn btn-danger btn-sm" data-type="image" data-for="display" data-return="#image1" data-link="image1">Add Image</a>
+                                                </div>
+                                            </div>
+                                        @endforelse
+                                        <div class="ext-image"> </div>
+                                        <div class="add-more-images2"><a href="#" class="btn btn-success float-right">Add More</a> </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="font-weight-600 req">Description</label>

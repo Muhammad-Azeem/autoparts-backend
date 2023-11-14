@@ -29,6 +29,15 @@ class AddProductController extends Controller
         if ($request->isMethod("POST")){
             $validator = Validator::make($request->all(),[
                 'name' => 'required|string',
+                'price' => 'required',
+                'description' => 'required',
+                'discounted_price' => 'required',
+                'vehicle_fitment' => 'required',
+                'part_number' => 'required',
+                'status' => 'required',
+                'available_stock' => 'required',
+                'wholesale_price' => 'required',
+                'minimum_quantity' => 'required',
             ]);
             if($validator->fails()){
                 return back()->with(['type' => 'danger','msg'=>$validator->messages()->first()]);

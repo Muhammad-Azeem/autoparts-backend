@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('other_name');
             $table->string('part_number');
             $table->string('replaced_by');
-            $table->bigInteger('status');
+            $table->string('status');
             $table->bigInteger('available_stock');
             $table->float('wholesale_price');
             $table->bigInteger('minimum_quantity');

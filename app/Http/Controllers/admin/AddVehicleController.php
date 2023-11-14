@@ -5,26 +5,33 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\subCategory;
+use App\Models\vehicle;
 use App\Services\AddProductService;
 use App\Services\CategoryService;
 use App\Services\SubCategoryService;
+use App\Services\VehicleService;
 use Illuminate\Http\Request;
 
 class AddVehicleController extends Controller
 {
     protected $AddVehicleService;
 
-    public function __construct(SubCategoryService $AddSubCategoryService = null)
+    public function __construct(VehicleService $AddVehicleService = null)
     {
-        $this->AddSubCategoryService = $AddSubCategoryService;
+        $this->AddVehicleService = $AddVehicleService;
     }
 
     public function AddV(Request $request){
         if ($request->isMethod("POST")){
-            if (!empty($request->parent)){
+            if (!empty($request->id)){
 
             }
             else{
+                $request->validate([
+                    'company' => 'required',
+                    'model' => 'required',
+                    'year' => 'required',
+                ]);
                 $cat = $this->AddVehicleService->create($request->all());
                 if(!empty($cat->id)){
                     return back()->with(['type'=>'success','msg'=>'Successfully Added']);
@@ -32,17 +39,16 @@ class AddVehicleController extends Controller
             }
         }
         else{
-            $cat = category::orderByDesc("id")->get();
-            return view('admin.addscategory', compact(['cat']));
+            return view('admin.addvehicle');
         }
     }
-    public function SCategoryList(Request $request){
+    public function ShowV(Request $request){
         if ($request->isMethod("POST")){
 
         }
         else{
-            $lists = subCategory::orderByDesc("id")->get();
-            return view('admin.scategorylist',compact(['lists']));
+            $lists = vehicle::orderByDesc("id")->get();
+            return view('admin.vehiclelist',compact(['lists']));
         }
     }
 
