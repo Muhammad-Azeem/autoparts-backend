@@ -22,7 +22,7 @@ use App\Http\Controllers\admin\AddVehicleController;
 Route::match(['get','post'],'/admin',[AdminAuthController::class,'login_'])->name('login')->middleware(['guest:admin']);
 
 Route::group(['prefix' => '/admin','middleware' => ['auth:admin']],function () {
-    Route::match(['get', 'post'], '/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::match(['get'], '/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
     Route::match(['get', 'post'], '/add-product', [AddProductController::class, 'AddProduct'])->name('product');
     Route::match(['get', 'post'], '/product-list', [AddProductController::class, 'ProductList'])->name('productList');
@@ -34,11 +34,14 @@ Route::group(['prefix' => '/admin','middleware' => ['auth:admin']],function () {
     Route::match(['get', 'post'], '/subcategory-list', [SubCategoryController::class, 'SCategoryList'])->name('subcategoryList');
 
     Route::match(['get', 'post'], '/orders', [AdminController::class, 'orders'])->name('order');
+    Route::get('print/{id}',[AdminController::class,'invoice_p'])->name('invoice_p');
 
     Route::match(['get', 'post'], '/add-vehicle', [AddVehicleController::class, 'AddV'])->name('addVehicle');
     Route::match(['get', 'post'], '/vehicle-list', [AddVehicleController::class, 'ShowV'])->name('vehicleList');
 
     Route::match(['get', 'post'], '/customers', [AdminController::class, 'customers'])->name('customers');
+
+    Route::match(['get','post'],'login-info',[AdminController::class,'login_info'])->name('login-info');
 });
 
 

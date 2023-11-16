@@ -2,8 +2,9 @@
 @section("content")
     @php
         $invoice_id = sprintf("%06d", 100000 + $details->id);
-        $ship_ad = json_decode($details->shipping_address,true);
-        $products = json_decode($details->products,true);
+        $u_detail = \App\Models\User::where('id',$details->user_id)->with('address')->get();
+        $ship_ad = json_decode($u_detail[0]->address[0],true);
+       // $products = json_decode($details->products,true);
     @endphp
     <div class="body-content">
         <div class="row">
@@ -24,10 +25,10 @@
                                 <div class="col-sm-6">
                                     <h5>To:</h5>
                                     <address style="text-transform: capitalize;">
-                                        <strong>{{ key_val('site_name') }}</strong><br>
-                                        {{ key_val('company_address') }}<br>
-                                        <strong>Phone:</strong>
-                                        {{ key_val('company_phone') }} <br>
+                                        <strong>{{ $u_detail[0]['first_name'] }}</strong><br>
+                                        {{ $ship_ad['address_1'] }}<br>
+                                        <strong>Email:</strong>
+                                        {{ $u_detail[0]['email'] }} <br>
                                         <span style="display:inline-block;width:47px;"></span> <br>
                                         <span style="display:inline-block;width:47px;"></span>        </address>
                                 </div>
@@ -39,15 +40,15 @@
                                     <div class="clearfix"></div>
                                     <table style="max-width:190px;display:block;float:right;">
                                         <tbody><tr>
-                                            <td style="text-transform: capitalize;"><strong>{{ $ship_ad['bill_name'] }}</strong></td>
+                                            <td style="text-transform: capitalize;"><strong>Auto Parts</strong></td>
                                         </tr>
                                         <tr style="text-transform: capitalize;">
-                                            <td> {{ $ship_ad['bill_addr'] }} <br>
-                                                {{ $ship_ad['bill_loc'] }}, Pakistan
-                                                {{ $ship_ad['zip'] }}</td>
+                                            <td> Lahore, Pakistan <br>
+                                                {Lahore, Pakistan, Pakistan
+                                                54000</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Phone:</strong> {{ $ship_ad['phone_1'] }}</td>
+                                            <td><strong>Phone:</strong> +1 234 56789</td>
                                         </tr>
                                         </tbody></table>
                                     <div class="clearfix"></div>
@@ -69,52 +70,52 @@
                                         <th style="text-align:right;">Total Price</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    @foreach($products as $k => $val)
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    {{ $val['id'] }}  -  <a href="{{ route('HomeUrl').'/-2'.$val['id'] }}" target="_blank">{{ $val['product'] }}</a>                                            </div>
-                                            </td>
-                                            @if($val['is_stitch'] == "on")
-                                                <td style="">Stitch</td>
-                                            @else
-                                                <td style="">Unstitch</td>
-                                            @endif
+{{--                                    <tbody>--}}
+{{--                                    @foreach($products as $k => $val)--}}
+{{--                                        <tr>--}}
+{{--                                            <td>--}}
+{{--                                                <div>--}}
+{{--                                                    {{ $val['id'] }}  -  <a href="{{ route('HomeUrl').'/-2'.$val['id'] }}" target="_blank">{{ $val['product'] }}</a>                                            </div>--}}
+{{--                                            </td>--}}
+{{--                                            @if($val['is_stitch'] == "on")--}}
+{{--                                                <td style="">Stitch</td>--}}
+{{--                                            @else--}}
+{{--                                                <td style="">Unstitch</td>--}}
+{{--                                            @endif--}}
 
-                                            <td style="">{{ $val['price'] }}</td>
-                                            <td style="">{{ $val['qty'] }}</td>
-                                            <td style="text-align:right;">{{ $val['price'] * $val['qty'] }}</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+{{--                                            <td style="">{{ $val['price'] }}</td>--}}
+{{--                                            <td style="">{{ $val['qty'] }}</td>--}}
+{{--                                            <td style="text-align:right;">{{ $val['price'] * $val['qty'] }}</td>--}}
+{{--                                        </tr>--}}
+{{--                                    @endforeach--}}
+{{--                                    </tbody>--}}
+{{--                                </table>--}}
+{{--                            </div>--}}
 
-                            <table class="table invoice-total _print_invoice_b">
-                                <tbody>
-                                <tr>
-                                    <td><strong>Sub Total :</strong></td>
-                                    <td style="text-align:right;">{{ $details->total_price }} Pkr</td>
-                                </tr>
+{{--                            <table class="table invoice-total _print_invoice_b">--}}
+{{--                                <tbody>--}}
+{{--                                <tr>--}}
+{{--                                    <td><strong>Sub Total :</strong></td>--}}
+{{--                                    <td style="text-align:right;">{{ $details->total_price }} Pkr</td>--}}
+{{--                                </tr>--}}
 
-                                <tr>
-                                    <td><strong>Shipping Charges :</strong></td>
-                                    <td style="text-align:right;">{{ $details->shipping }}</td>
-                                </tr>
-                                <tr class="total">
-                                    <td>TOTAL :</td>
-                                    <td style="text-align:right;">
-                                        {{ $details->total_price }} Pkr</td>
-                                </tr>
-                                <tr class="print_inv">
-                                    <td colspan="2" style="padding:0px;padding-top:30px;padding-bottom:30px;">
+{{--                                <tr>--}}
+{{--                                    <td><strong>Shipping Charges :</strong></td>--}}
+{{--                                    <td style="text-align:right;">{{ $details->shipping }}</td>--}}
+{{--                                </tr>--}}
+{{--                                <tr class="total">--}}
+{{--                                    <td>TOTAL :</td>--}}
+{{--                                    <td style="text-align:right;">--}}
+{{--                                        {{ $details->total_price }} Pkr</td>--}}
+{{--                                </tr>--}}
+{{--                                <tr class="print_inv">--}}
+{{--                                    <td colspan="2" style="padding:0px;padding-top:30px;padding-bottom:30px;">--}}
 
-                                        <a href="{{ route('invoice_p',$details->id) }}" class="btn btn-success right btn-lg" target="_blank"><i class="fa fa-print"></i>&nbsp; &nbsp; Print Invoice</a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+{{--                                        <a href="{{ route('invoice_p',$details->id) }}" class="btn btn-success right btn-lg" target="_blank"><i class="fa fa-print"></i>&nbsp; &nbsp; Print Invoice</a>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                                </tbody>--}}
+{{--                            </table>--}}
                         </div>
                     </div>
                 </div>

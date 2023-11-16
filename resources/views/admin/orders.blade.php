@@ -66,24 +66,25 @@
                                         @foreach($orders as $order)
                                             @php
                                                 $invoice_id = sprintf("%06d", 100000 + $order->id);
-//                                                $shp_adr = json_decode($order->shipping_address,true);
+                                                $u_detail = \App\Models\User::where('id',$order->user_id)->with('address')->get();
+                                                $shp_adr = json_decode($u_detail[0]->address,true);
                                             @endphp
                                             <tr class="_tr33 -dpm33">
                                                 <td><a title="View Detail" href="?detail={{ $order->id }}">INV-{{ $invoice_id }}</a></td>
-{{--                                                <td>{{ $shp_adr['bill_name'] }}<br><small>{{ $shp_adr['email'] }}</small></td>--}}
-{{--                                                <td>{{ $shp_adr['bill_addr'] }}</td>--}}
-{{--                                                <td>{{ $order->total_price }}</td>--}}
-{{--                                                <td>{{ date("d-F-y", strtotime($order->created_at)) }}</td>--}}
-{{--                                                <td class="shtd33">--}}
-{{--                                                    {{ $order->status }}--}}
-{{--                                                </td>--}}
-{{--                                                <td>--}}
-{{--                                                    <a href="#" data-id="{{ $order->id }}" class="-change-order-status fa fa-exchange-alt" data-label="{{ $order->status }}" title="Change Order Status"></a>--}}
+                                                <td>{{ $u_detail[0]->first_name }}<br><small>{{ $u_detail[0]->email }}</small></td>
+                                                <td>{{ $shp_adr[0]['city'] }}</td>
+                                                <td>{{ $order->total }}</td>
+                                                <td>{{ date("d-F-y", strtotime($order->created_at)) }}</td>
+                                                <td class="shtd33">
+                                                    {{ $order->status == 1 ? "Active" : "Closed" }}
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-id="{{ $order->id }}" class="-change-order-status fa fa-exchange-alt" data-label="{{ $order->status }}" title="Change Order Status"></a>
 
-{{--                                                    <a class="fa fa-print" href="{{ route('invoice_p',$order->id) }}" target="_blank" title="Print Order"></a>--}}
+                                                    <a class="fa fa-print" href="{{ route('invoice_p',$order->id) }}" target="_blank" title="Print Order"></a>
 
-{{--                                                    <a href="?delete={{ $order->id }}" data-id="{{ $order->id }}" class="_delAdminOrder fa fa-trash sconfirm" title="Delete Order"></a>--}}
-{{--                                                </td>--}}
+                                                    <a href="?delete={{ $order->id }}" data-id="{{ $order->id }}" class="_delAdminOrder fa fa-trash sconfirm" title="Delete Order"></a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
