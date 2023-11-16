@@ -273,7 +273,7 @@
                     </script>
                     <li class="{{ (request()->segment(2) === 'edit-user')? 'mm-active' : '' }}"><a href="{{ route('login-info') }}"><i class="typcn typcn-user mr-2"></i> Profile</a></li>
                     <li class="">
-                        <a href="" aria-expanded="true" style="background-color: darkred;border-radius: 10px;"><i class="typcn typcn-power"></i> Logout</a>
+                        <a href="{{ route('logoutadmin') }}" aria-expanded="true" style="background-color: darkred;border-radius: 10px;"><i class="typcn typcn-power"></i> Logout</a>
                     </li>
                 </ul>
             </nav>
