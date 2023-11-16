@@ -49,7 +49,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('category/create', [CategoryController::class, 'create']);
     Route::post('category/update/{id}', [CategoryController::class, 'update']);
     Route::post('category/delete/{id}', [CategoryController::class, 'delete']);
-    Route::get('product/getAllProductsByCategory', [CategoryController::class, 'getAllProductsByCategory']);
 
     Route::post('sub-category/find/{id}', [SubCategoryController::class, 'find']);
     Route::post('sub-category/create', [SubCategoryController::class, 'create']);
@@ -75,7 +74,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('product/create', [ProductController::class, 'create']);
     Route::post('product/update/{id}', [ProductController::class, 'update']);
     Route::post('product/delete/{id}', [ProductController::class, 'delete']);
- 
+
     Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
 
     Route::post('garage/find/{id}', [GarageController::class, 'find']);
@@ -87,15 +86,16 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('tracking/create', [TrackingController::class, 'create']);
     Route::post('tracking/update/{id}', [TrackingController::class, 'update']);
     Route::post('tracking/delete/{id}', [TrackingController::class, 'delete']);
- 
+
     Route::get('vehicle/find/{id}', [VehicleController::class, 'find']);
     Route::post('vehicle/create', [VehicleController::class, 'create']);
     Route::post('vehicle/update/{id}', [VehicleController::class, 'update']);
     Route::post('vehicle/delete/{id}', [VehicleController::class, 'delete']);
-    Route::get('vehicle/allYears', [VehicleController::class, 'getAllYears']);
-    Route::get('vehicle/allModels', [VehicleController::class, 'getAllModels']);
-    Route::get('vehicle/allCompanies', [VehicleController::class, 'getAllCompanies']);
-    Route::get('vehicle/searchVehicle/{year}/{model}/{company}', [VehicleController::class, 'searchVehicle']);
 
 
 });
+Route::get('vehicle/allYears', [VehicleController::class, 'getAllYears']);
+Route::get('vehicle/allModels', [VehicleController::class, 'getAllModels']);
+Route::get('vehicle/allCompanies', [VehicleController::class, 'getAllCompanies']);
+Route::get('vehicle/searchVehicle/{year}/{model}/{company}', [VehicleController::class, 'searchVehicle']);
+Route::get('product/getAllProductsByCategory', [CategoryController::class, 'getAllProductsByCategory']);
