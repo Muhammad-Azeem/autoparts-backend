@@ -45,44 +45,44 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('update', [AuthController::class, 'update']);
     Route::post('changeEmail', [AuthController::class, 'updateEmail']);
 
-    Route::post('category/find/{id}', [CategoryController::class, 'find']);
+    Route::get('category/find/{id}', [CategoryController::class, 'find']);
     Route::post('category/create', [CategoryController::class, 'create']);
     Route::post('category/update/{id}', [CategoryController::class, 'update']);
     Route::post('category/delete/{id}', [CategoryController::class, 'delete']);
 
-    Route::post('sub-category/find/{id}', [SubCategoryController::class, 'find']);
+
+    Route::get('sub-category/find/{id}', [SubCategoryController::class, 'find']);
     Route::post('sub-category/create', [SubCategoryController::class, 'create']);
-    Route::post('sub-category/update/{id}', [SubCategoryController::class, 'update']);
-    Route::post('sub-category/delete/{id}', [SubCategoryController::class, 'delete']);
+    Route::put('sub-category/update/{id}', [SubCategoryController::class, 'update']);
+    Route::delete('sub-category/delete/{id}', [SubCategoryController::class, 'delete']);
 
-    Route::post('cart/find/{id}', [CartController::class, 'find']);
+    Route::get('cart/find/{id}', [CartController::class, 'find']);
     Route::post('cart/create', [CartController::class, 'create']);
-    Route::post('cart/update/{id}', [CartController::class, 'update']);
-    Route::post('cart/delete/{id}', [CartController::class, 'delete']);
+    Route::put('cart/update/{id}', [CartController::class, 'update']);
+    Route::delete('cart/delete/{id}', [CartController::class, 'delete']);
 
-    Route::post('address/find/{id}', [AddressController::class, 'find']);
+    Route::get('address/find/{id}', [AddressController::class, 'find']);
     Route::post('address/create', [AddressController::class, 'create']);
-    Route::post('address/update/{id}', [AddressController::class, 'update']);
-    Route::post('address/delete/{id}', [AddressController::class, 'delete']);
+    Route::put('address/update/{id}', [AddressController::class, 'update']);
+    Route::delete('address/delete/{id}', [AddressController::class, 'delete']);
 
-    Route::post('order/find/{id}', [OrderController::class, 'find']);
+    Route::get('order/find/{id}', [OrderController::class, 'find']);
     Route::post('order/create', [OrderController::class, 'create']);
-    Route::post('order/update/{id}', [OrderController::class, 'update']);
-    Route::post('order/delete/{id}', [OrderController::class, 'delete']);
+    Route::put('order/update/{id}', [OrderController::class, 'update']);
+    Route::delete('order/delete/{id}', [OrderController::class, 'delete']);
 
-    Route::post('product/find/{id}', [ProductController::class, 'find']);
+
     Route::post('product/create', [ProductController::class, 'create']);
     Route::post('product/update/{id}', [ProductController::class, 'update']);
     Route::post('product/delete/{id}', [ProductController::class, 'delete']);
 
-    Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
 
-    Route::post('garage/find/{id}', [GarageController::class, 'find']);
+    Route::get('garage/find/{id}', [GarageController::class, 'find']);
     Route::post('garage/create', [GarageController::class, 'create']);
-    Route::post('garage/update/{id}', [GarageController::class, 'update']);
-    Route::post('garage/delete/{id}', [GarageController::class, 'delete']);
+    Route::put('garage/update/{id}', [GarageController::class, 'update']);
+    Route::delete('garage/delete/{id}', [GarageController::class, 'delete']);
 
-    Route::post('tracking/find/{id}', [TrackingController::class, 'find']);
+    Route::get('tracking/find/{id}', [TrackingController::class, 'find']);
     Route::post('tracking/create', [TrackingController::class, 'create']);
     Route::post('tracking/update/{id}', [TrackingController::class, 'update']);
     Route::post('tracking/delete/{id}', [TrackingController::class, 'delete']);
@@ -92,7 +92,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('vehicle/update/{id}', [VehicleController::class, 'update']);
     Route::post('vehicle/delete/{id}', [VehicleController::class, 'delete']);
 
-
 });
 Route::get('vehicle/allYears', [VehicleController::class, 'getAllYears']);
 Route::get('vehicle/allModels', [VehicleController::class, 'getAllModels']);
@@ -100,3 +99,7 @@ Route::get('vehicle/allCompanies', [VehicleController::class, 'getAllCompanies']
 Route::get('vehicle/searchVehicle/{year}/{model}/{company}', [VehicleController::class, 'searchVehicle']);
 Route::get('product/getAllProductsByCategory', [CategoryController::class, 'getAllProductsByCategory']);
 Route::get('product/getProductsByCategoryId/{categoryId}', [CategoryController::class, 'getProductsByCategory']);
+
+Route::get('vehicle/allCategories', [CategoryController::class, 'getAllCategories']);
+Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
+Route::get('product/find/{id}', [ProductController::class, 'find']);

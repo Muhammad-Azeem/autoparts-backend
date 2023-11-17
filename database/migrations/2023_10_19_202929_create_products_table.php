@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('images');
             $table->float('price');
+            $table->text('images');
             $table->text('description');
             $table->bigInteger('sub_category_id')->unsigned();
             $table->foreign('sub_category_id')
@@ -25,11 +26,12 @@ return new class extends Migration
                 ->references('id')->on('vehicles')->onDelete('cascade');
             $table->float('discounted_price');
             $table->text('vehicle_fitment');
+            $table->string('sku')->unique();
             $table->text('check_fitment');
             $table->string('other_name');
             $table->string('part_number');
             $table->string('replaced_by');
-            $table->bigInteger('status');
+            $table->string('status');
             $table->bigInteger('available_stock');
             $table->float('wholesale_price');
             $table->bigInteger('minimum_quantity');
