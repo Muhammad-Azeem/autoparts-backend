@@ -20,6 +20,10 @@ class CategoryService
     public function find($id){
         return $this->repository->find($id);
     }
+    public function getAllCategories() {
+        return $this->repository->getAllCategories();
+    }
+
 
     public function create($request){
         return $this->repository->create($request);

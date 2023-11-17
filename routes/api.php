@@ -71,11 +71,11 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::put('order/update/{id}', [OrderController::class, 'update']);
     Route::delete('order/delete/{id}', [OrderController::class, 'delete']);
 
-    Route::get('product/find/{id}', [ProductController::class, 'find']);
+    
     Route::post('product/create', [ProductController::class, 'create']);
     Route::post('product/update/{id}', [ProductController::class, 'update']);
     Route::post('product/delete/{id}', [ProductController::class, 'delete']);
-    Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
+    
 
     Route::get('garage/find/{id}', [GarageController::class, 'find']);
     Route::post('garage/create', [GarageController::class, 'create']);
@@ -92,11 +92,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('vehicle/update/{id}', [VehicleController::class, 'update']);
     Route::post('vehicle/delete/{id}', [VehicleController::class, 'delete']);
 
-
-
 });
 Route::get('vehicle/allYears', [VehicleController::class, 'getAllYears']);
 Route::get('vehicle/allModels', [VehicleController::class, 'getAllModels']);
 Route::get('vehicle/allCompanies', [VehicleController::class, 'getAllCompanies']);
 Route::get('vehicle/searchVehicle/{year}/{model}/{company}', [VehicleController::class, 'searchVehicle']);
 Route::get('product/getAllProductsByCategory', [CategoryController::class, 'getAllProductsByCategory']);
+
+Route::get('vehicle/allCategories', [CategoryController::class, 'getAllCategories']);
+Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
+Route::get('product/find/{id}', [ProductController::class, 'find']);

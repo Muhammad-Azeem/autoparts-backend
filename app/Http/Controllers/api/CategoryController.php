@@ -35,6 +35,10 @@ class CategoryController extends Controller
        return $categories;
     }
 
+    public function getAllCategories() {
+        return $this->CategoryService->getAllCategories();
+    }
+
     public function update(Request $request,$id){
         return $this->CategoryService->update($id, $request);
     }
