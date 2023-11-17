@@ -26,15 +26,11 @@ class CategoryController extends Controller
     }
 
     public function getAllProductsByCategory() {
-       $categories = category::all();
-       foreach ($categories as $key=>$category){
-        $subCategory = subCategory::where('category_id' , $category->id)->pluck('id')->toArray();
-        $categories[$key]['products'] = product::whereIn('sub_category_id' ,  $subCategory)->get();
-        $categories[$key]['name'] = $category->name;
-       }
-       return $categories;
+       return $this->CategoryService->getAllProductsByCategory();
     }
-
+    public function getProductsByCategory($categoryId){
+        return $this->CategoryService->getProductsByCategory($categoryId);
+    }
     public function update(Request $request,$id){
         return $this->CategoryService->update($id, $request);
     }
