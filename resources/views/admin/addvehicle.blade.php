@@ -6,7 +6,7 @@
             $model = old('model');
             $year = old('year');
         }
-        elseif(!empty($catD)){
+        elseif(!empty($cat)){
             $company = $cat->company;
             $model = $cat->model;
             $year = $cat->year;

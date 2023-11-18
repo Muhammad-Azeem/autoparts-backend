@@ -44,7 +44,6 @@
                                             <td>{{ $list->zip_code }}</td>
                                             <td>{{ date("d M y h:i",strtotime($list->created_at)) }}</td>
                                             <td>
-                                                <a class="fa fa-edit" href="?edit={{ $list->id }}" title="edit"></a>
                                                 <a class="fa fa-trash sconfirm" href="?delete={{ $list->id }}" title="delete"></a>
                                             </td>
                                             @endforeach

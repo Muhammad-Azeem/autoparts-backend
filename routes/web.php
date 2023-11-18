@@ -42,6 +42,8 @@ Route::group(['prefix' => '/admin','middleware' => ['auth:admin']],function () {
     Route::match(['get', 'post'], '/customers', [AdminController::class, 'customers'])->name('customers');
 
     Route::match(['get','post'],'login-info',[AdminController::class,'login_info'])->name('login-info');
+
+    Route::get('logout',[AdminController::class,'logout'])->name('logoutadmin');
 });
 
 

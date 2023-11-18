@@ -45,10 +45,10 @@
                                         <tr>
                                             <th scope="row">{{ $m }}</th>
                                             <td><a href="" target="_blank"><strong>{{ $list->name }}</strong></a></td>
-                                            <td></td>
+                                            <td>{{ \Illuminate\Support\Str::slug($list->name, "-") }}</td>
                                             <td>
-                                                <a class="fa fa-edit" href="?edit={{ $list->id }}" title="edit"></a>
-                                                <a class="fa fa-trash sconfirm" href="?delete={{ $list->id }}" title="delete"></a>
+                                                <a class="fa fa-edit" href="{{ route('addCategory',['edit' => $list->id]) }}" title="edit"></a>
+                                                <a class="_delAdminOrder fa fa-trash sconfirm" href="?delete={{ $list->id }}" title="delete"></a>
                                             </td>
                                             @php $m++; @endphp
                                             @endforeach

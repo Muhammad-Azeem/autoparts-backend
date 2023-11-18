@@ -133,8 +133,8 @@
                                     <td>{{ $orders->user->city }}</td>
                                     <td>{{ $orders->total  }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-success-soft btn-sm mr-1"><i class="far fa-eye"></i></a>
-                                        <a href="#" class="btn btn-danger-soft btn-sm"><i class="far fa-trash-alt"></i></a>
+                                        <a href="{{ route('order') }}" class="btn btn-success-soft btn-sm mr-1"><i class="far fa-eye"></i></a>
+                                        <a href="{{ route('order',['delete' => $orders->id]) }}" class="btn btn-danger-soft btn-sm"><i class="far fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

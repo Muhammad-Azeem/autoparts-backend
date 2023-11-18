@@ -37,8 +37,10 @@ class SubCategoryController extends Controller
         }
     }
     public function SCategoryList(Request $request){
-        if ($request->isMethod("POST")){
-
+        if($request->has("delete")){
+            $id = $request->delete;
+            subCategory::where('id',$id)->delete();
+            return back()->with(['type' => 'success','msg'=>'Sub Category Deleted Successfully']);
         }
         else{
             $lists = subCategory::orderByDesc("id")->get();
