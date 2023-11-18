@@ -31,6 +31,9 @@ class CategoryController extends Controller
     public function getProductsByCategory($categoryId){
         return $this->CategoryService->getProductsByCategory($categoryId);
     }
+    public function getProductsBySubCategory($subCategoryId){
+        return $this->CategoryService->getProductsBySubCategory($subCategoryId);
+    }
 
     public function getAllCategories() {
         return $this->CategoryService->getAllCategories();
