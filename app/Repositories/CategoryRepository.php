@@ -22,6 +22,9 @@ class CategoryRepository
     public function create($request){
        return $this->model->create($request);
     }
+    public function getAllCategories() {
+        return $this->model->with('sub_categories')->get();
+    }
 
     public function update($id, $data){
         $this->model->find($id)->update($data->all());

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
-
+use App\Models\category;
+use App\Models\subCategory;
+use App\Models\product;
 class CategoryController extends Controller
 {
     protected $CategoryService;
@@ -21,6 +23,20 @@ class CategoryController extends Controller
 
     public function create(Request $request){
         return $this->CategoryService->create($request->all());
+    }
+
+    public function getAllProductsByCategory() {
+       return $this->CategoryService->getAllProductsByCategory();
+    }
+    public function getProductsByCategory($categoryId){
+        return $this->CategoryService->getProductsByCategory($categoryId);
+    }
+    public function getProductsBySubCategory($subCategoryId){
+        return $this->CategoryService->getProductsBySubCategory($subCategoryId);
+    }
+
+    public function getAllCategories() {
+        return $this->CategoryService->getAllCategories();
     }
 
     public function update(Request $request,$id){

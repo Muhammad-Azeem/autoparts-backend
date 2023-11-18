@@ -22,4 +22,7 @@ class AuthRepository
         $this->model->find($id)->update($data);
         return $this->model->find($id);
     }
+    public function findByEmail($email){
+        return $this->model->where(['email' => $email])->first();
+    }
 }

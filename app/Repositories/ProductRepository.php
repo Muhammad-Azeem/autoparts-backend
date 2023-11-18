@@ -17,6 +17,15 @@ class ProductRepository
     public function find($id){
         return $this->model->find($id);
     }
+    // public function getProductsBySubCategory($subcategory) {
+    //     return Product::with('get_sub_category') 
+    //         ->where('sub_category_id', $subcategory)
+    //         ->get();
+    // }
+
+    public function getAllProducts() {
+        return product::all();
+     }
 
     public function create($request){
        return $this->model->create($request);
