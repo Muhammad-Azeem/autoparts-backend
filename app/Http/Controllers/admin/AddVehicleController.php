@@ -22,20 +22,23 @@ class AddVehicleController extends Controller
     }
 
     public function AddV(Request $request){
+        if($request->isMethod('get') and $request->has('edit')){
+            $id = $request->edit;
+            $cat = vehicle::findOrFail($id);
+            return view('admin.addvehicle',compact(['cat']));
+        }
         if ($request->isMethod("POST")){
-            if (!empty($request->id)){
-
-            }
-            else{
-                $request->validate([
-                    'company' => 'required',
-                    'model' => 'required',
-                    'year' => 'required',
-                ]);
+            $request->validate([
+                'company' => 'required',
+                'model' => 'required',
+                'year' => 'required',
+            ]);
+            if (!empty($request->id)) {
+                $cat = $this->AddVehicleService->update($request->id, $request);
+                return back()->with(['type' => 'success', 'msg' => 'Successfully Updated']);
+            } else {
                 $cat = $this->AddVehicleService->create($request->all());
-                if(!empty($cat->id)){
-                    return back()->with(['type'=>'success','msg'=>'Successfully Added']);
-                }
+                return back()->with(['type' => 'success', 'msg' => 'Successfully Added']);
             }
         }
         else{
@@ -43,10 +46,11 @@ class AddVehicleController extends Controller
         }
     }
     public function ShowV(Request $request){
-        if ($request->isMethod("POST")){
-
-        }
-        else{
+        if($request->has("delete")){
+            $id = $request->delete;
+            vehicle::where('id',$id)->delete();
+            return back()->with(['type' => 'success','msg'=>'Successfully Deleted']);
+        } else{
             $lists = vehicle::orderByDesc("id")->get();
             return view('admin.vehiclelist',compact(['lists']));
         }

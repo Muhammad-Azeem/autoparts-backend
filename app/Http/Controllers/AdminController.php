@@ -23,8 +23,10 @@ class AdminController extends Controller
     }
 
     public function customers(Request $request){
-        if($request->isMethod("post")){
-
+        if($request->has("delete")){
+            $id = $request->delete;
+            User::where('id',$id)->delete();
+            return back()->with(['type' => 'success','msg'=>'Successfully Deleted']);
         }
         else{
             $lists = User::where('type',1)->get();

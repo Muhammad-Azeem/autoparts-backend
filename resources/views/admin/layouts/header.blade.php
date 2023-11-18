@@ -252,7 +252,7 @@
                         </a>
                         <ul class="nav-second-level">
                             <li class="{{ (request()->segment(2) === 'orders')? 'mm-active' : '' }}"><a href="{{ route('order') }}">Orders</a></li>
-                            <li class="{{ (request()->segment(2) === 'add-vehicle')? 'mm-active' : '' }}"><a href="">Reports</a></li>
+                            <li class="{{ (request()->segment(2) === 'dfs')? 'mm-active' : '' }}"><a href="">Reports</a></li>
                         </ul>
                     </li>
                     <li>
