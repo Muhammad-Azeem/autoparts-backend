@@ -100,6 +100,7 @@ Route::get('vehicle/allCompanies', [VehicleController::class, 'getAllCompanies']
 Route::get('vehicle/searchVehicle/{year}/{model}/{company}', [VehicleController::class, 'searchVehicle']);
 Route::get('product/getAllProductsByCategory', [CategoryController::class, 'getAllProductsByCategory']);
 Route::get('product/getProductsByCategoryId/{categoryId}', [CategoryController::class, 'getProductsByCategory']);
+Route::get('product/getProductsBySubCategoryId/{subCategoryId}', [CategoryController::class, 'getProductsBySubCategory']);
 
 Route::get('vehicle/allCategories', [CategoryController::class, 'getAllCategories']);
 Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
