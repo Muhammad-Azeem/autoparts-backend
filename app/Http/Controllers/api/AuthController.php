@@ -35,9 +35,16 @@ class AuthController extends Controller
         $request->type = 1;
         $request->password = bcrypt($request->password);
 
-        $response = $this->authService->signup($request->all());
+        $token = $this->authService->signup($request->all());
+        $user = $this->authService->getUser($request->all());
+        if ($token) {
+            return response(['message' => 'Register successful', 'token' => $token, 'user' => $user], 200);
+        } else {
+            return response(['message' => 'Invalid credentials'], 401);
+        }
+        // $response = $this->authService->signup($request->all());
 
-        return response(['message' => 'User registered successfully', 'data'=> $response], 200);
+        // return response(['message' => 'User registered successfully', 'data'=> $response], 200);
     }
 
     public function login(Request $request) {
