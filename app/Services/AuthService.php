@@ -34,6 +34,9 @@ class AuthService
         return $this->repository->update($id, $data);
 
     }
+    public function updateShipping($id, $data){
+        return $this->repository->updateShipping($id, $data);
+    }
 
     public function getUser(array $credentials) {
         if (Auth::attempt($credentials)) {

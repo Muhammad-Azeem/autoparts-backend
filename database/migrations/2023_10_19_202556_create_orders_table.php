@@ -13,13 +13,22 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->nullable();
             $table->foreign('user_id')
                 ->references('id')->on('users')->onDelete('cascade');
             $table->float('sub_total');
             $table->float('shipment_cost');
             $table->float('total');
             $table->enum('status',['1','2']);
+
+            $table->string('country')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('company')->nullable();
+            $table->string('street')->nullable();
+            $table->string('appartment')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }
