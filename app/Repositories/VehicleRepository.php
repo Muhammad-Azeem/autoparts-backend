@@ -19,6 +19,36 @@ class VehicleRepository
         return $this->model->find($id);
     }
 
+    public function searchVehicle($year) {
+        return  vehicle::where('year', $year)->first();
+    }
+    public function getAllYears() {
+        return vehicle::distinct()->pluck('year');
+    }
+
+    public function getAllModels() {
+        return vehicle::distinct()->pluck('model');
+    }
+
+    public function getAllCompanies() {
+        return vehicle::distinct()->pluck('company');
+    }
+
+    // public function findByModel($model) {
+    //     return vehicle::where('model', $model)->first();
+    // }
+
+    // public function findByCompany($company) {
+    //     return vehicle::where('company', $company)->first();
+    // }
+
+    // public function findMyParts($year, $model, $company) {
+    //     return vehicle::where('year', $year)
+    //         ->where('model', $model)
+    //         ->where('company', $company)
+    //         ->first();
+    // }
+
     public function create($request){
        return $this->model->create($request);
     }

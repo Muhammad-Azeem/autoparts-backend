@@ -26,8 +26,6 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
         ]);
@@ -51,9 +49,9 @@ class AuthController extends Controller
             return response(['message'=>$validator->messages()->first(), 'data'=> []],401);
         }
         $token = $this->authService->login($request->all());
-
+        $user = $this->authService->getUser($request->all());
         if ($token) {
-            return response()->json(['message' => 'Login successful', 'token' => $token], 200);
+            return response()->json(['message' => 'Login successful', 'token' => $token, 'user' => $user], 200);
         } else {
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
@@ -77,5 +75,33 @@ class AuthController extends Controller
         $user = $this->authService->update($user, $request->all());
 
         return response()->json(['message' => 'User updated successfully', 'user' => $user], 200);
+    }
+
+    
+
+    public function updateEmail(Request $request) {
+        $user = Auth::user()->id;
+        $password = Auth::user()->password;
+    
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|string|email',
+        ]);
+
+        if($this->authService->findByEmail($request->get('newEmail'))){
+            return alert('User Alrear Exits');
+        }
+        else
+        {
+            if (Auth::attempt(['email' => $user->email, 'password' => $password])) {
+                $user = $this->authService->update($user, $request->all());
+
+                return response()->json(['message' => 'Email updated successfully', 'user' => $user], 200);
+            }
+        }
+
+        if($validator->fails()){
+            return response(['message'=>$validator->messages()->first(), 'data'=> []],401);
+        }
+     
     }
 }

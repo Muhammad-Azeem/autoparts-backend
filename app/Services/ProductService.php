@@ -19,6 +19,14 @@ class ProductService
     public function find($id){
         return $this->repository->find($id);
     }
+    
+    public function getAllProducts() {
+        return $this->repository->getAllProducts();
+    }
+
+    // public function getProductsBySubCategory($subcategory) {
+    //     return $this->repository->getProductsBySubCategory($subcategory);
+    // }
 
     public function create($request){
         return $this->repository->create($request);

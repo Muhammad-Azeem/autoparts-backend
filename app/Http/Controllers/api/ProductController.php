@@ -19,7 +19,14 @@ class ProductController extends Controller
     public function find($id){
         return $this->ProductService->find($id);
     }
+    public function getAllProducts() {
+        return $this->ProductService->getAllProducts();
+    }
+    // public function getProductsBySubCategory(Request $request, $subcategory) {
+    //     $products = $this->productService->getProductsBySubCategory($subcategory);
 
+    //     return response()->json(['products' => $products], 200);
+    // }
     public function create(Request $request){
         return $this->ProductService->create($request->all());
     }
