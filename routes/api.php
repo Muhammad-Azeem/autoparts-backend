@@ -66,11 +66,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('address/create', [AddressController::class, 'create']);
     Route::put('address/update/{id}', [AddressController::class, 'update']);
     Route::delete('address/delete/{id}', [AddressController::class, 'delete']);
+    Route::get('address/getByUserId/{id}', [AddressController::class, 'getByUserId']);
 
     Route::get('order/find/{id}', [OrderController::class, 'find']);
     Route::post('order/create', [OrderController::class, 'create']);
     Route::put('order/update/{id}', [OrderController::class, 'update']);
     Route::delete('order/delete/{id}', [OrderController::class, 'delete']);
+    Route::get('order/getByUserId/{id}', [OrderController::class, 'getByUserId']);
 
 
     Route::post('product/create', [ProductController::class, 'create']);

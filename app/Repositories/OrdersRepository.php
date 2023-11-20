@@ -30,4 +30,7 @@ class OrdersRepository
     public function delete($id){
         return $this->model->find($id)->delete();
     }
+    public function getByUserId($id){
+        return $this->model->where('user_id', $id)->with('user')->get();
+    }
 }

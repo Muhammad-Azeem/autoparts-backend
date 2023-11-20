@@ -27,7 +27,7 @@ class OrderController extends Controller
         return $this->OrdersService->update($id, $request);
     }
 
-    public function delete($id){
-        return $this->OrdersService->delete($id);
+    public function getByUserId($id){
+        return $this->OrdersService->getByUserId($id);
     }
 }
