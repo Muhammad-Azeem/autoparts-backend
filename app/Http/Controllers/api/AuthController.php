@@ -35,9 +35,16 @@ class AuthController extends Controller
         $request->type = 1;
         $request->password = bcrypt($request->password);
 
-        $response = $this->authService->signup($request->all());
+        $token = $this->authService->signup($request->all());
+        $user = $this->authService->getUser($request->all());
+        if ($token) {
+            return response(['message' => 'Register successful', 'token' => $token, 'user' => $user], 200);
+        } else {
+            return response(['message' => 'Invalid credentials'], 401);
+        }
+        // $response = $this->authService->signup($request->all());
 
-        return response(['message' => 'User registered successfully', 'data'=> $response], 200);
+        // return response(['message' => 'User registered successfully', 'data'=> $response], 200);
     }
 
     public function login(Request $request) {
@@ -77,12 +84,12 @@ class AuthController extends Controller
         return response()->json(['message' => 'User updated successfully', 'user' => $user], 200);
     }
 
-    
+
 
     public function updateEmail(Request $request) {
         $user = Auth::user()->id;
         $password = Auth::user()->password;
-    
+
         $validator = Validator::make($request->all(),[
             'email' => 'required|string|email',
         ]);
@@ -102,6 +109,16 @@ class AuthController extends Controller
         if($validator->fails()){
             return response(['message'=>$validator->messages()->first(), 'data'=> []],401);
         }
-     
+
     }
+
+    public function updateShipping(Request $request) {
+        $user = Auth::user()->id;
+
+        $user = $this->authService->updateShipping($user, $request->all());
+
+        return response()->json(['message' => 'Shipping Details updated successfully', 'user' => $user], 200);
+
+    }
+
 }
