@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     });
     Route::post('update', [AuthController::class, 'update']);
     Route::post('changeEmail', [AuthController::class, 'updateEmail']);
+    Route::post('updateShipping', [AuthController::class, 'updateShipping']);
 
     Route::get('category/find/{id}', [CategoryController::class, 'find']);
     Route::post('category/create', [CategoryController::class, 'create']);
