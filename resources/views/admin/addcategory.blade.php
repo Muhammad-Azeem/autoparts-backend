@@ -3,32 +3,12 @@
     @php
         if(!empty(old())){
             $name = old();
-            $slug = old();
-            $meta_title = old();
-            $meta_desc = old();
-            $meta_tags = old();
-            $show_on_home = old();
-            $og_image = old();
         }
-        elseif(!empty($catD)){
+        elseif(!empty($cat)){
             $name = $cat->name;
-            $slug = $cat->slug;
-            $meta_title = $cat->meta_title;
-            $meta_desc = $cat->meta_desc;
-            $meta_tags = $cat->meta_tags;
-            $show_on_home = $cat->show_on_home;
-            $schemas = (!empty($cat->schema_code))?json_decode($cat->schema_code,true):array();
-            $og_image = $cat->og_image;
         }
         else{
             $name = '';
-            $slug = '';
-            $meta_title = '';
-            $meta_desc = '';
-            $meta_tags = '';
-            $show_on_home = '';
-            $schemas = array();
-            $og_image = '' ;
         }
     @endphp
     <div class="body-content">
@@ -73,24 +53,7 @@
                                     <div class="form-group">
                                         <label class="req font-weight-600">Slug:</label>
                                         <div class="input-group">
-                                            <input type="" name="slug" value="{{ $slug }}" readonly class="form-control tcount" data-count="text" placeholder="Enter Category Slug Here" id="slug">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="card">
-                                            <div class="card-header card bg-success text-white">
-                                                <b> Parent Category </b>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="skin-line">
-                                                    <select name="parent" class="form-control basic-single">
-                                                        <option value="">Select Parent Classification</option>
-                                                        @foreach($cat as $cats)
-                                                            <option value="{{ $cats->id }}" {{--{{ ($cats->id == $parent) ? 'selected' : '' }}--}}>{{--{{ (!empty($cats->parent)) ? '━ ' : '' }}--}}{{ $cats->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            <input type="" name="slug" value="{{ (!empty($cat->id))?\Illuminate\Support\Str::slug($cat->name):'' }}" readonly class="form-control tcount" data-count="text" placeholder="Enter Category Slug Here" id="slug">
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-success right" name="submit">Submit <span class="fa fa-paper-plane"></span></button>

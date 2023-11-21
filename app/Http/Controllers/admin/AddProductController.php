@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\product;
 use App\Models\subCategory;
+use App\Models\vehicle;
 use App\Services\AddProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -21,17 +22,18 @@ class AddProductController extends Controller
 
     public function AddProduct(Request $request){
         $sub = subCategory::orderByDesc("id")->get();
+        $veh = vehicle::orderByDesc("id")->get();
         if($request->isMethod('get') and $request->has('id')){
             $id = $request->id;
             $pro = product::findOrFail($id);
-            return view('admin.addproduct',compact(['pro','sub']));
+            return view('admin.addproduct',compact(['pro','sub','veh']));
         }
         if ($request->isMethod("POST")){
             $validator = Validator::make($request->all(),[
                 'name' => 'required|string',
                 'price' => 'required',
                 'description' => 'required',
-                'discounted_price' => 'required',
+                'discounted_price' => '',
                 'vehicle_fitment' => 'required',
                 'part_number' => 'required',
                 'status' => 'required',
@@ -52,7 +54,7 @@ class AddProductController extends Controller
              }
         }
         else{
-            return view('admin.addproduct',compact(['sub']));
+            return view('admin.addproduct',compact(['sub','veh']));
         }
     }
     public function ProductList(Request $request){

@@ -8,7 +8,7 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h6 class="fs-17 font-weight-600 mb-0">Category List</h6>
+                                    <h6 class="fs-17 font-weight-600 mb-0">Sub Category List</h6>
                                 </div>
                                 <div class="text-right">
                                     <div class="actions">

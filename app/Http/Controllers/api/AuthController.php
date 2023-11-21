@@ -30,17 +30,19 @@ class AuthController extends Controller
             'password' => 'required|min:8',
         ]);
         if($validator->fails()){
-            return response(['message'=>$validator->messages()->first(), 'data'=> []],401);
+            return response(['message'=>$validator->messages()->first(), 'data'=> []],422);
         }
         $request->type = 1;
         $request->password = bcrypt($request->password);
 
-        $token = $this->authService->signup($request->all());
+        $this->authService->signup($request->all());
         $user = $this->authService->getUser($request->all());
+        $token = $user->createToken('auth_token')->plainTextToken;
+
         if ($token) {
             return response(['message' => 'Register successful', 'token' => $token, 'user' => $user], 200);
         } else {
-            return response(['message' => 'Invalid credentials'], 401);
+            return response(['message' => 'Invalid credentials'], 422);
         }
         // $response = $this->authService->signup($request->all());
 

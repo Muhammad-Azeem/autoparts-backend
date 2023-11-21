@@ -31,18 +31,8 @@
                                 <input type="text" name="username" value="" class="form-control">
                             </div>
                             <div class="form-group col-md-9">
-                                <label class="req">Old Password</label>
-                                <input type="password" name="old_password" value="" class="form-control">
-                                <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
-                            </div>
-                            <div class="form-group col-md-9">
                                 <label class="req">New Password</label>
                                 <input type="password" name="password" value="" class="form-control">
-                                <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
-                            </div>
-                            <div class="form-group col-md-9">
-                                <label class="req">Confirm Password</label>
-                                <input type="password" name="password_confirmation" value="" class="form-control">
                                 <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
                             </div>
                             <div class="form-group col-md-9">

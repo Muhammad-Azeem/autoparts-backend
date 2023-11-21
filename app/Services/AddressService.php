@@ -34,4 +34,8 @@ class AddressService
         return $this->repository->delete($id);
 
     }
+    public function getByUserId($id){
+        return $this->repository->getByUserId($id);
+
+    }
 }

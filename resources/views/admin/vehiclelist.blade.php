@@ -47,7 +47,7 @@
                                             <td>{{ $list->model }}</td>
                                             <td>{{ $list->year }}</td>
                                             <td>
-                                                <a class="fa fa-edit" href="?edit={{ $list->id }}" title="edit"></a>
+                                                <a class="fa fa-edit" href="{{ route('addVehicle',['edit' => $list->id]) }}" title="edit"></a>
                                                 <a class="fa fa-trash sconfirm" href="?delete={{ $list->id }}" title="delete"></a>
                                             </td>
                                             @php $m++; @endphp

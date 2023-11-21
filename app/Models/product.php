@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','price','images','sub_category_id','vehicle_id','description','discounted_price','vehicle_fitment','check_fitment','other_name','part_number','replaced_by','status','available_stock','wholesale_price','minimum_quantity'];
+    protected $fillable = ['name','price','images','sub_category_id','vehicle_id','description','discounted_price','vehicle_fitment','check_fitment','other_name','part_number','replaced_by','status','available_stock','wholesale_price','minimum_quantity','part_name_code','manufacturer','brand','replaces','manufacturer_part_number','part_description','fitment_type','warranty','part_description-other-name','manufacturer-note','item-dimension','item-weight','position','condition'];
     public function user()
     {
         return $this->belongsTo(User::class,'user_id');
