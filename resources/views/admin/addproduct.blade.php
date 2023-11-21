@@ -193,91 +193,91 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="font-weight-600">Vehicle Fitment</label>
+                                        <label class="font-weight-600 req">Vehicle Fitment</label>
                                         <div>
                                             <textarea class="form-control oneditor" rows="9" name="vehicle_fitment" id="oneditor" aria-hidden="true">{{ $vehicle_fitment }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Part Name Code</label>
+                                        <label class="font-weight-600">Part Name Code</label>
                                         <div class="input-group">
                                             <input type="text" name="part_name_code" value="{{ $part_name_code }}" class="form-control" placeholder="Enter Part Name Code" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Manufacturer</label>
+                                        <label class="font-weight-600">Manufacturer</label>
                                         <div class="input-group">
                                             <input type="text" name="manufacturer" value="{{ $manufacturer }}" class="form-control" placeholder="Enter manufacturer" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Brand</label>
+                                        <label class="font-weight-600">Brand</label>
                                         <div class="input-group">
                                             <input type="text" name="brand" value="{{ $brand }}" class="form-control" placeholder="Enter Brand Name" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Replaces</label>
+                                        <label class="font-weight-600">Replaces</label>
                                         <div class="input-group">
                                             <input type="text" name="replaces" value="{{ $replaces }}" class="form-control" placeholder="Enter Replaces" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Manufacturer Part Number</label>
+                                        <label class="font-weight-600">Manufacturer Part Number</label>
                                         <div class="input-group">
                                             <input type="text" name="manufacturer_part_number" value="{{ $manufacturer_part_number }}" class="form-control" placeholder="Enter Manufacturer Part Number" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Part Description</label>
+                                        <label class="font-weight-600">Part Description</label>
                                         <div class="input-group">
                                             <input type="text" name="part_description" value="{{ $part_description }}" class="form-control" placeholder="Enter Part Description" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Fitment Type</label>
+                                        <label class="font-weight-600">Fitment Type</label>
                                         <div class="input-group">
                                             <input type="text" name="fitment_type" value="{{ $fitment_type }}" class="form-control" placeholder="Enter Fitment Type" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Warranty</label>
+                                        <label class="font-weight-600">Warranty</label>
                                         <div class="input-group">
                                             <input type="text" name="warranty" value="{{ $warranty }}" class="form-control" placeholder="Enter Warranty" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Part Description Other Name </label>
+                                        <label class="font-weight-600">Part Description Other Name </label>
                                         <div class="input-group">
                                             <input type="text" name="part_description_other_name" value="{{ $part_description_other_name }}" class="form-control" placeholder="Enter Part Description Other Name" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Manufacturer Note</label>
+                                        <label class="font-weight-600">Manufacturer Note</label>
                                         <div class="input-group">
                                             <input type="text" name="manufacturer_note" value="{{ $manufacturer_note }}" class="form-control" placeholder="Enter Manufacturer Note" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Item Dimension</label>
+                                        <label class="font-weight-600">Item Dimension</label>
                                         <div class="input-group">
                                             <input type="text" name="item_dimension" value="{{ $item_dimension }}" class="form-control" placeholder="Enter Item Dimension" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Item Weight</label>
+                                        <label class="font-weight-600">Item Weight</label>
                                         <div class="input-group">
                                             <input type="text" name="item_weight" value="{{ $item_weight }}" class="form-control" placeholder="Enter Item Weight" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Position</label>
+                                        <label class="font-weight-600">Position</label>
                                         <div class="input-group">
                                             <input type="text" name="position" value="{{ $position }}" class="form-control" placeholder="Enter Position" data-link="" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="req font-weight-600">Condition</label>
+                                        <label class="font-weight-600">Condition</label>
                                         <div class="input-group">
                                             <input type="text" name="condition" value="{{ $condition }}" class="form-control" placeholder="Enter Condition" data-link="" data-count="text">
                                         </div>
@@ -309,10 +309,10 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="skin-line">
-                                                    <select name="parent" class="form-control basic-single">
+                                                    <select name="vehicle_id" class="form-control basic-single">
                                                         <option value="">Select Vehicle</option>
-                                                        @foreach($sub as $cats)
-                                                            <option value="{{ $cats->id }}" {{--{{ ($cats->id == $parent) ? 'selected' : '' }}--}}>{{--{{ (!empty($cats->parent)) ? '━ ' : '' }}--}}{{ $cats->name }}</option>
+                                                        @foreach($veh as $cats)
+                                                            <option value="{{ $cats->id }}" {{ ($cats->id == $vehicle_id) ? 'selected' : '' }} >{{ $cats->company }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -333,18 +333,18 @@
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12">
                                         <label class="req">Minimum Quantity</label>
-                                        <input type="text" name="minimum_quantity" class="form-control" value="{{ $minimum_quantity }}" placeholder="Enter Wholesale Price">
+                                        <input type="text" name="minimum_quantity" class="form-control" value="{{ $minimum_quantity }}" placeholder="Enter Minimum Quantity">
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12">
-                                        <label class="font-weight-600">Old Price</label>
+                                        <label class="font-weight-600 req">Price</label>
                                         <div class="input-group">
                                             <input type="text" name="price" value="{{ $price }}" placeholder="Enter Product Old Price" class="form-control" min="0" max="99999" onkeydown="">
                                         </div>
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12">
-                                        <label class="font-weight-600 req">Discounted Price</label>
+                                        <label class="font-weight-600">Discounted Price</label>
                                         <div class="input-group">
-                                            <input type="text" name="discounted_price" value="{{ $discounted_price }}" placeholder="Enter Product New Price" class="form-control" min="0" max="99999" onkeydown="">
+                                            <input type="text" name="discounted_price" value="{{ $discounted_price }}" placeholder="Enter Product Discounted Price" class="form-control" min="0" max="99999" onkeydown="">
                                         </div>
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12">
