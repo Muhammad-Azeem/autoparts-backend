@@ -64,6 +64,25 @@ class AuthController extends Controller
         }
     }
 
+    public function bussinessAcct(Request $request) {
+     
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        if($validator->fails()){
+            return response(['message'=>$validator->messages()->first(), 'data'=> []],401);
+        }
+        $token = $this->authService->bussinessAcct($request->all());
+        $user = $this->authService->getUser($request->all());
+
+        if ($token) {
+            return response()->json(['message' => 'Bussiness Registered Successful', 'token' => $token, 'user' => $user], 200);
+        } else {
+            return response()->json(['message' => 'Invalid credentials'], 401);
+        }
+    }
+
     public function update(Request $request) {
         $user = Auth::user()->id;
         $validator = Validator::make($request->all(),[

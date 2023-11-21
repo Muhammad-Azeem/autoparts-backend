@@ -30,6 +30,10 @@ class AuthService
         return null;
     }
 
+    public function bussinessAcct($request){
+        return $this->repository->create($request);
+    }
+
     public function update($id, $data){
         return $this->repository->update($id, $data);
 
