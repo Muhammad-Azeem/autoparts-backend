@@ -20,12 +20,12 @@ class VehicleService
     public function find($id){
         return $this->repository->find($id);
     }
-    public function getAllYears() {
-        return $this->repository->getAllYears();
+    public function getAllYears($model) {
+        return $this->repository->getAllYears($model);
     }
 
-    public function getAllModels() {
-        return $this->repository->getAllModels();
+    public function getAllModels($company) {
+        return $this->repository->getAllModels($company);
     }
     public function getAllCompanies() {
         return $this->repository->getAllCompanies();

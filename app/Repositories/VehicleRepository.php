@@ -19,15 +19,15 @@ class VehicleRepository
         return $this->model->find($id);
     }
 
-    public function searchVehicle($year) {
-        return  vehicle::where('year', $year)->first();
+    public function searchVehicle($year,$model,$company) {
+        return  vehicle::where('year', $year)->where('model',$model)->where('company', $company)->first();
     }
-    public function getAllYears() {
-        return vehicle::distinct()->pluck('year');
+    public function getAllYears($model) {
+        return vehicle::where('model',$model)->distinct()->pluck('year');
     }
 
-    public function getAllModels() {
-        return vehicle::distinct()->pluck('model');
+    public function getAllModels($company) {
+        return vehicle::where('company',$company)->distinct()->pluck('model');
     }
 
     public function getAllCompanies() {

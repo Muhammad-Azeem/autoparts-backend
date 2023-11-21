@@ -97,13 +97,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 });
 Route::post('order/create', [OrderController::class, 'create']);
 
-Route::get('vehicle/allYears', [VehicleController::class, 'getAllYears']);
-Route::get('vehicle/allModels', [VehicleController::class, 'getAllModels']);
+Route::get('vehicle/allYears/{model}', [VehicleController::class, 'getAllYears']);
+Route::get('vehicle/allModels/{company}', [VehicleController::class, 'getAllModels']);
 Route::get('vehicle/allCompanies', [VehicleController::class, 'getAllCompanies']);
 Route::get('vehicle/searchVehicle/{year}/{model}/{company}', [VehicleController::class, 'searchVehicle']);
 Route::get('product/getAllProductsByCategory', [CategoryController::class, 'getAllProductsByCategory']);
 Route::get('product/getProductsByCategoryId/{categoryId}', [CategoryController::class, 'getProductsByCategory']);
-Route::get('product/getProductsBySubCategoryId/{subCategoryId}', [CategoryController::class, 'getProductsBySubCategory']);
+Route::get('product/getProductsBySubCategoryId/{subCategoryId}/{vehicleId?}', [CategoryController::class, 'getProductsBySubCategory']);
 
 Route::get('vehicle/allCategories', [CategoryController::class, 'getAllCategories']);
 Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
