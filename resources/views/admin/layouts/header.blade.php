@@ -9,7 +9,7 @@
     <meta name="author" content="Admin">
     <title>{{ config('app.name') }} - Admin</title>
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/dist/img/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets-m/dist/img/favicon.ico') }}">
     <!--Global Styles(used by all pages)-->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -29,7 +29,7 @@
     <link href="{{ asset('assets/plugins/jquery.sumoselect/sumoselect.min.css') }}" rel="stylesheet">
     @if(request()->segment(2) === 'create-story')
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets-m/css/bootstrap-datetimepicker.min.css') }}">
     @endif
     @if(request()->segment(2) === 'story-list' || request()->segment(2) === 'research')
         <link href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
@@ -42,8 +42,8 @@
     <link href="{{ asset('assets/plugins/select2/dist/css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/select2-bootstrap4/dist/select2-bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/jquery.sumoselect/sumoselect.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dist/css/select.html') }}" rel="stylesheet" type="text/css"/>
-
+    <link href="{{ asset('assets/dist/css/select.html') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('/assets-m/media.js') }}" rel="stylesheet" type="text/css">
     <style>
         .bg-success{
             background-color: #2e5ba5 !important;

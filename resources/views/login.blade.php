@@ -11,7 +11,7 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="">
     <!--Global Styles(used by all pages)-->
-    <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets-m/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="assets/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
     <link href="assets/plugins/fontawesome/css/all.min.css" rel="stylesheet">
     <link href="assets/plugins/typicons/src/typicons.min.css" rel="stylesheet">

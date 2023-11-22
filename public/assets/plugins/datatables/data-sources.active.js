@@ -12,7 +12,7 @@
         },
         ajaxSourcedData: function () {
             $('.ajax-sourced-data').DataTable({
-                "ajax": 'assets/plugins/datatables/arrays.txt'
+                "ajax": 'assets-m/plugins/datatables/arrays.txt'
             });
         },
         JavascriptSourcedData: function () {
@@ -70,7 +70,7 @@
             $('.server-side-processing').DataTable({
                 "processing": true,
                 "serverSide": true,
-                "ajax": "assets/plugins/datatables/server_processing.json"
+                "ajax": "assets-m/plugins/datatables/server_processing.json"
             });
         }
     };

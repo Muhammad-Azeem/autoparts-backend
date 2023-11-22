@@ -1,4 +1,4 @@
-$.fn.raty.defaults.path = 'assets/plugins/raty/lib/images';
+$.fn.raty.defaults.path = 'assets-m/plugins/raty/lib/images';
 
 $(function () {
     $('#default').raty();
@@ -60,9 +60,9 @@ $(function () {
     $('#starHalf').raty({
         half: true,
         path: null,
-        starHalf: 'assets/plugins/raty/lib/images/star-half-mono.png',
-        starOff: 'assets/plugins/raty/lib/images/star-off.png',
-        starOn: 'assets/plugins/raty/lib/images/star-on.png'
+        starHalf: 'assets-m/plugins/raty/lib/images/star-half-mono.png',
+        starOff: 'assets-m/plugins/raty/lib/images/star-off.png',
+        starOn: 'assets-m/plugins/raty/lib/images/star-on.png'
     });
 
     $('#click').raty({
@@ -81,7 +81,7 @@ $(function () {
     $('#hints').raty({hints: ['a', null, '', undefined, '*_*']});
 
     $('#star-off-and-star-on').raty({
-        path: 'assets/plugins/raty/lib/images',
+        path: 'assets-m/plugins/raty/lib/images',
         starOff: 'off.png',
         starOn: 'on.png'
     });
