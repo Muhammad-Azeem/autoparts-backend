@@ -58,9 +58,16 @@ class CategoryService
 
         return $data;
     }
-    public function getProductsBySubCategory($subCategoryId){
+    public function getProductsBySubCategory($subCategoryId,$vehicleId){
 
-        $data['products'] = product::where('sub_category_id' ,  $subCategoryId)->get();
+        if($vehicleId){
+            $data['products'] = product::where('sub_category_id' ,  $subCategoryId)->where('vehicle_id',$vehicleId)->get();
+
+        }
+        else{
+            $data['products'] = product::where('sub_category_id' ,  $subCategoryId)->get();
+
+        }
         return $data;
     }
 }
