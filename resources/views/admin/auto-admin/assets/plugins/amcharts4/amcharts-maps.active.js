@@ -75,7 +75,7 @@
             /*
              var smallMap = new maps.SmallMap();
              chart.smallMap = smallMap;
-             
+
              var smallMapPolygonSeries = smallMap.series.push(new maps.MapPolygonSeries());
              smallMapPolygonSeries.copyFrom(polygonSeries);
              */
@@ -125,7 +125,7 @@
                     labelContainer.hide();
                 };
 
-// Continents 
+// Continents
                 var continentsSeries = chart.series.push(new am4maps.MapPolygonSeries());
                 continentsSeries.geodata = am4geodata_continentsLow;
                 continentsSeries.useGeodata = true;
@@ -318,7 +318,7 @@
             var bombImage = bomb.createChild(am4core.Image);
             bombImage.width = 32;
             bombImage.height = 32;
-            bombImage.href = "assets/plugins/amcharts4/img/rocket.svg";
+            bombImage.href = "assets-m/plugins/amcharts4/img/rocket.svg";
             bombImage.verticalCenter = "middle";
             bombImage.horizontalCenter = "middle";
 
@@ -368,7 +368,7 @@
             bangImage.height = 50;
             bangImage.verticalCenter = "middle";
             bangImage.horizontalCenter = "middle";
-            bangImage.href = "assets/plugins/amcharts4/img/bang.png";
+            bangImage.href = "assets-m/plugins/amcharts4/img/bang.png";
             bang.opacity = 0;
 
             var mapLineSeries = mapChart.series.push(new am4maps.MapLineSeries());
