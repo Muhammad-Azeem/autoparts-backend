@@ -20,12 +20,12 @@ class VehicleController extends Controller
     public function find($id){
         return $this->VehicleService->find($id);
     }
-    public function getAllYears() {
+    public function getAllYears($model) {
 
-        return $this->VehicleService->getAllYears();
+        return $this->VehicleService->getAllYears($model);
     }
-    public function getAllModels() {
-        return $this->VehicleService->getAllModels();
+    public function getAllModels($company) {
+        return $this->VehicleService->getAllModels($company);
     }
     public function getAllCompanies() {
         return $this->VehicleService->getAllCompanies();

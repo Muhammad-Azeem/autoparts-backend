@@ -31,4 +31,8 @@ class AddressController extends Controller
     public function delete($id){
         return $this->AddressService->delete($id);
     }
+    public function getByUserId($id){
+        return $this->AddressService->getByUserId($id);
+    }
+
 }

@@ -75,7 +75,6 @@
             /*
              var smallMap = new maps.SmallMap();
              chart.smallMap = smallMap;
-
              var smallMapPolygonSeries = smallMap.series.push(new maps.MapPolygonSeries());
              smallMapPolygonSeries.copyFrom(polygonSeries);
              */
