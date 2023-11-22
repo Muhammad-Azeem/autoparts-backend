@@ -139,7 +139,7 @@
 
             $(document).ready(function () {
                 var table = $('.child-rows').DataTable({
-                    "ajax": "assets/plugins/datatables/objects.txt",
+                    "ajax": "assets-m/plugins/datatables/objects.txt",
                     "columns": [
                         {
                             "className": 'details-control',
