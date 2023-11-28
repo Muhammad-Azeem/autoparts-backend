@@ -29,6 +29,10 @@ class VehicleRepository
     public function getAllModels($company) {
         return vehicle::where('company',$company)->distinct()->pluck('model');
     }
+    public function getVehicles() {
+        return $this->model->all();
+    }
+
 
     public function getAllCompanies() {
         return vehicle::distinct()->pluck('company');

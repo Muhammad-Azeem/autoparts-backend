@@ -27,6 +27,11 @@ class VehicleService
     public function getAllModels($company) {
         return $this->repository->getAllModels($company);
     }
+
+    public function getVehicles() {
+        return $this->repository->getVehicles();
+    }
+
     public function getAllCompanies() {
         return $this->repository->getAllCompanies();
     }

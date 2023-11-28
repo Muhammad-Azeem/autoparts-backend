@@ -27,6 +27,10 @@ class VehicleController extends Controller
     public function getAllModels($company) {
         return $this->VehicleService->getAllModels($company);
     }
+    public function getVehicles() {
+        return $this->VehicleService->getVehicles();
+    }
+
     public function getAllCompanies() {
         return $this->VehicleService->getAllCompanies();
     }
