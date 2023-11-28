@@ -100,6 +100,8 @@ Route::post('order/create', [OrderController::class, 'create']);
 
 Route::get('vehicle/allYears/{model}', [VehicleController::class, 'getAllYears']);
 Route::get('vehicle/allModels/{company}', [VehicleController::class, 'getAllModels']);
+Route::get('vehicle/getVehicles', [VehicleController::class, 'getVehicles']);
+
 Route::get('vehicle/allCompanies', [VehicleController::class, 'getAllCompanies']);
 Route::get('vehicle/searchVehicle/{year}/{model}/{company}', [VehicleController::class, 'searchVehicle']);
 Route::get('product/getAllProductsByCategory', [CategoryController::class, 'getAllProductsByCategory']);
@@ -109,3 +111,4 @@ Route::get('product/getProductsBySubCategoryId/{subCategoryId}/{vehicleId?}', [C
 Route::get('vehicle/allCategories', [CategoryController::class, 'getAllCategories']);
 Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
 Route::get('product/find/{id}', [ProductController::class, 'find']);
+
