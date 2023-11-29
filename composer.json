@@ -10,7 +10,8 @@
         "hassankwl1001/mediapanel": "^3.0",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "stripe/stripe-php": "^13.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
