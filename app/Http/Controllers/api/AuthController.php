@@ -67,7 +67,7 @@ class AuthController extends Controller
     }
 
     public function bussinessAcct(Request $request) {
-     
+
         $validator = Validator::make($request->all(),[
             'email' => 'required|email',
             'password' => 'required',
@@ -75,8 +75,12 @@ class AuthController extends Controller
         if($validator->fails()){
             return response(['message'=>$validator->messages()->first(), 'data'=> []],401);
         }
-        $token = $this->authService->bussinessAcct($request->all());
-        $user = $this->authService->getUser($request->all());
+
+        $request->type = 3;
+        $request->password = bcrypt($request->password);
+
+        $user = $this->authService->bussinessAcct($request->all());
+        $token = $user->createToken('auth_token')->plainTextToken;
 
         if ($token) {
             return response()->json(['message' => 'Bussiness Registered Successful', 'token' => $token, 'user' => $user], 200);

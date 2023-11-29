@@ -18,7 +18,7 @@ class ProductRepository
         return $this->model->find($id);
     }
     // public function getProductsBySubCategory($subcategory) {
-    //     return Product::with('get_sub_category') 
+    //     return Product::with('get_sub_category')
     //         ->where('sub_category_id', $subcategory)
     //         ->get();
     // }
@@ -38,5 +38,13 @@ class ProductRepository
 
     public function delete($id){
         return $this->model->find($id)->delete();
+    }
+    public function search($query){
+        if($query == 'all')
+            return $this->model->all();
+        return $this->model->where('part_number', 'like', "%$query%")
+            ->orWhere('name', 'like', "%$query%")
+            ->orWhere('description', 'like', "%$query%")
+            ->get();;
     }
 }

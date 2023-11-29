@@ -110,4 +110,4 @@ Route::get('product/getProductsBySubCategoryId/{subCategoryId}/{vehicleId?}', [C
 Route::get('vehicle/allCategories', [CategoryController::class, 'getAllCategories']);
 Route::get('product/allProducts', [ProductController::class, 'getAllProducts']);
 Route::get('product/find/{id}', [ProductController::class, 'find']);
-
+Route::get('product/search/{searchString}', [ProductController::class, 'search']);

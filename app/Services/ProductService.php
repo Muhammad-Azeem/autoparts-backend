@@ -19,7 +19,7 @@ class ProductService
     public function find($id){
         return $this->repository->find($id);
     }
-    
+
     public function getAllProducts() {
         return $this->repository->getAllProducts();
     }
@@ -39,6 +39,8 @@ class ProductService
 
     public function delete($id){
         return $this->repository->delete($id);
-
+    }
+    public function search($searchString){
+        return $this->repository->search($searchString);
     }
 }
