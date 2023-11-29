@@ -399,7 +399,7 @@ function function12() {
 
             // create the notification
             var notification = new NotificationFx({
-                message: '<div class="ns-thumb"><img src="assets/dist/img/user1.jpg"/></div><div class="ns-content"><p><a href="#">Zoe Moulder</a> accepted your invitation.</p></div>',
+                message: '<div class="ns-thumb"><img src="assets-m/dist/img/user1.jpg"/></div><div class="ns-content"><p><a href="#">Zoe Moulder</a> accepted your invitation.</p></div>',
                 layout: 'other',
                 ttl: 6000,
                 effect: 'thumbslider',
@@ -484,7 +484,7 @@ function function17() {
         swal({
             title: "Sweet!",
             text: "Here's a custom image.",
-            imageUrl: "assets/plugins/sweetalert/thumbs-up.jpg"
+            imageUrl: "assets-m/plugins/sweetalert/thumbs-up.jpg"
         });
     });
 }

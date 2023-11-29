@@ -89,7 +89,7 @@
                 $brand = '';
                 $replaces = '';
                 $manufacturer_part_number = '';
-                 $part_description = '';
+                $part_description = '';
                 $manufacturer_note = '';
                 $fitment_type = '';
                 $warranty = '';
@@ -144,7 +144,7 @@
                                     <div class="form-group">
                                         <label class="req font-weight-600">Product Name</label>
                                         <div class="input-group">
-                                            <input type="text" name="name" value="{{ $name }}" class="form-control cslug" placeholder="Enter Product Name" data-link="slug" data-count="text">
+                                            <input required type="text" name="name" value="{{ $name }}" class="form-control cslug" placeholder="Enter Product Name" data-link="slug" data-count="text">
                                         </div>
                                     </div>
                                     <div class="form-group">

@@ -149,7 +149,7 @@
     {{--            <div class="col-lg-12">--}}
     {{--                <div class="bg-white p-4" style="">--}}
     {{--                    <!-- Body -->--}}
-    {{--                    <script src="{{ asset('assets/dist/js/Chart.min.js') }}"></script>--}}
+    {{--                    <script src="{{ asset('assets-m/dist/js/Chart.min.js') }}"></script>--}}
     {{--                    <template class="vw-cr-mn">@json($views)</template>--}}
     {{--                    <template class="vw-cr-yr">@json($views_m)</template>--}}
     {{--                    <template class="vw-cr-an">@json($views_y)</template>--}}

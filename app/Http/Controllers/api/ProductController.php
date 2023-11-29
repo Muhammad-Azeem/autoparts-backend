@@ -38,4 +38,7 @@ class ProductController extends Controller
     public function delete($id){
         return $this->ProductService->delete($id);
     }
+    public function search($searchString){
+        return $this->ProductService->search($searchString);
+    }
 }
