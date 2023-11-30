@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Services\AuthService;
+use Couchbase\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -144,6 +145,22 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Shipping Details updated successfully', 'user' => $user], 200);
 
+    }
+
+    public function updatePassword(Request $request,$id) {
+
+        $result = $this->authService->updatePassword($id, [
+            'current_password' => $request->input('current_password'),
+            'new_password' => $request->input('new_password'),
+        ]);
+
+        if ($result) {
+            // Password updated successfully
+            return response()->json(['message' => 'Password updated successfully']);
+        } else {
+            // Handle validation failure or other errors
+            return response()->json(['message' => 'Current password is incorrect'], 422);
+        }
     }
 
 }

@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use App\Repositories\AuthRepository;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthService
 {
@@ -40,6 +42,28 @@ class AuthService
     }
     public function updateShipping($id, $data){
         return $this->repository->updateShipping($id, $data);
+    }
+
+    public function updatePassword($id, $data){
+        // Find the user by ID
+        $user = User::find($id);
+
+        if (!$user) {
+            // User not found
+            return false;
+        }
+
+        // Validate the current password
+        if (!Hash::check($data['current_password'], $user->password)) {
+            // Current password doesn't match
+            return false;
+        }
+
+        // Update the password
+        $user->password = Hash::make($data['new_password']);
+        $user->save();
+
+        return true;
     }
 
     public function getUser(array $credentials) {

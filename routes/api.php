@@ -38,6 +38,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('signup', [AuthController::class, 'signup']);
 Route::post('login', [AuthController::class, 'login']);
 Route::post('bussinessAcct', [AuthController::class, 'bussinessAcct']);
+Route::post('updatePassword/{id}', [AuthController::class, 'updatePassword']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/check-auth', function (Request $request){

@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\address;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthRepository
 {
@@ -39,6 +40,7 @@ class AuthRepository
         $address->save();
         return $this->model->find($id);
     }
+
     public function findByEmail($email){
         return $this->model->where(['email' => $email])->first();
     }
