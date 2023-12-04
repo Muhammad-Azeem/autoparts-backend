@@ -26,16 +26,16 @@ class AuthRepository
     }
 
     public function updateShipping($id, $data){
-        $this->model->find($id)->update(['business_phone_number'=> $data->business_phone_number, 'zip_code' => $data->zip_code]);
+        $this->model->find($id)->update(['business_phone_number'=> $data['business_phone_number'], 'zip_code' => $data['zip_code']]);
         $address = new address();
         $address->user_id = $id;
-        $address->country = 'pakistan';
-        $address->first_name = $data->first_name;
-        $address->last_name = $data->last_name;
-        $address->company = $data->company;
-        $address->city = $data->city;
-        $address->address_1 = $data;
-        $address->save_as = $data;
+        $address->country = $data['country'];
+        $address->first_name = $data['first_name'];
+        $address->last_name = $data['last_name'];
+        $address->company = $data['company'];
+        $address->city = $data['appartment'];
+        $address->address_1 = $data['address'];;
+        $address->save_as = $data['save_as'];
         $address->is_default = 1;
         $address->save();
         return $this->model->find($id);
